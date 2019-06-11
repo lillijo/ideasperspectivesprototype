@@ -14,7 +14,6 @@ class DetailedView {
   }
 
 
-
   inBounds(x, y) {
     if (abs(x - this.node.x) < this.sizeX &&
       abs(y - this.node.y) < this.sizeY) {
@@ -58,7 +57,7 @@ class DetailedView {
     }
 
     fill(0);
-        rect(this.node.x, this.node.y, this.sizeX, this.sizeY, 20);
+    rect(this.node.x, this.node.y, this.sizeX, this.sizeY, 20);
     fill(this.node.color);
     rect(this.node.x, this.node.y, this.sizeX - this.innerBuffer, this.sizeY - this.innerBuffer, 20);
 
