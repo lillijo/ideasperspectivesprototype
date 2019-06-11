@@ -5,7 +5,7 @@
 let boxSize = 60;
 let boxes = [];
 let colors = [[200,200,100],[180,180,180],[200,0,0],[0,200,0],[0,0,200]];
- 
+
 /*function preload() {
   inconsolata = loadFont('assets/inconsolata.otf');
 }*/
@@ -30,12 +30,12 @@ function setup() {
 
 function draw() {
   background(255);
-  
+
   for (let i = 0; i < boxes.length; i++) {
     boxes[i].display(mouseX, mouseY);
     fill(0);
     text(boxes[i].name,boxes[i].x,boxes[i].y);
-    
+
   }
 }
 
@@ -97,14 +97,14 @@ class Box {
   boxReleased() {
     this.locked = false;
   }
-  
+
   boxClicked(mX, mY){
     if (this.overBox){
       console.log('doubleclick on', this.name);
       fill(45,45,23);
       text('hallo', mX,mY);
       ellipse(mX, mY, boxSize*2);
-      
+
     }
   }
 
@@ -127,13 +127,13 @@ class Box {
       strokeWeight(1);
       fill(this.color);
       this.overBox = false;
-      
+
     }
     // Draw the box
     line(this.x, this.y, 500, 400);
     rect(this.x, this.y, boxSize+20, boxSize);
-    
-    
+
+
 
   }
 

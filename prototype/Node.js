@@ -1,11 +1,12 @@
 class Node {
-  constructor(x, y, color, frontView, detailView) {
+  constructor(x, y, color, lineColor, frontView, detailView) {
     this.x = x;
     this.y = y;
     this.color = color;
     this.frontView = frontView;
     this.frontView.setNode(this);
     this.detailView = detailView;
+    this.lineColor = lineColor;
 
     if (this.detailView != null) {
       this.detailView.setNode(this);
@@ -45,7 +46,7 @@ class Node {
   }
 
   draw() {
-    stroke(255);
+    stroke(this.lineColor);
     this.selectedView.draw(this.x, this.y);
   }
 }

@@ -3,10 +3,24 @@ let nodes = [];
 let springs = [];
 let selectedNode;
 let heldNode;
+let ROT = [251,128,114];
+let GRUEN = [141,211,199];
+let LILA = [190,186,218];
+let GELB = [255,255,179];
+let GRAU = [220,220,220];
+let WHITE = [255,255,255];
+let BLACK = [0,0,0];
+
+let myFont;
+
+// preload function loads styles, fonts etc.
+function preload() {
+}
 
 // The statements in the setup() function
 // execute once when the program begins
 function setup() {
+  textFont("Lato");
   // createCanvas must be the first statement
   createCanvas(1920, 1080);
   stroke(255); // Set line drawing color to white
@@ -20,7 +34,7 @@ function setup() {
 }
 
 function setupNodes() {
-  centralNode = new Node(100, 100, color(200, 100, 0), new FrontView("Idea", "Short description", 100, 50), null);
+  centralNode = new Node(100, 100, WHITE, BLACK, new FrontView("Idea", "Short description", 100, 50), null);
 
   nodes.push(centralNode);
 
@@ -29,13 +43,13 @@ function setupNodes() {
   firstFrontView = new FrontView("First", "Description text bla", 100, 50);
   firstDetailedView = new DetailedView("First Detailed", "Description text bla", 300, 150);
 
-  nodes.push(new Node(500, 500, color(200, 50, 50), firstFrontView, firstDetailedView));
+  nodes.push(new Node(500, 500, LILA, WHITE, firstFrontView, firstDetailedView));
 
 
   secondFrontView = new FrontView("Second", "Description text bla", 100, 50);
   secondDetailedView = new DetailedView("Second Detailed", "Description text bla", 300, 150);
 
-  nodes.push(new Node(600, 300, color(50, 200, 50), secondFrontView, secondDetailedView));
+  nodes.push(new Node(600, 300, ROT,WHITE, secondFrontView, secondDetailedView));
 }
 
 function setupSprings() {
@@ -110,5 +124,26 @@ function getNodeUnderMouse() {
 
       return nodes[i];
     }
+  }
+}
+
+function linedash(x1, y1, x2, y2, delta, style = '-') {
+  // delta is both the length of a dash, the distance between 2 dots/dashes, and the diameter of a round
+  let distance = dist(x1,y1,x2,y2);
+  let dashNumber = distance/delta;
+  let xDelta = (x2-x1)/dashNumber;
+  let yDelta = (y2-y1)/dashNumber;
+
+  for (let i = 0; i < dashNumber; i+= 2) {
+    let xi1 = i*xDelta + x1;
+    let yi1 = i*yDelta + y1;
+    let xi2 = (i+1)*xDelta + x1;
+    let yi2 = (i+1)*yDelta + y1;
+
+    if (style == '-') {
+      fill(0);
+      line(xi1, yi1, xi2, yi2); }
+    else if (style == '.') { point(xi1, yi1); }
+    else if (style == 'o') { ellipse(xi1, yi1, delta/2); }
   }
 }
