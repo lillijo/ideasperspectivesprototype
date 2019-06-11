@@ -1,5 +1,5 @@
 class Spring {
-  constructor(fromNode, toNode){
+  constructor(fromNode, toNode) {
     this.fromNode = fromNode;
     this.toNode = toNode;
 

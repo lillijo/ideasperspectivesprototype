@@ -13,7 +13,7 @@ class Node {
     this.state = 0;
     this.selectedView = frontView;
 
-    this.velocity = createVector(0,0);
+    this.velocity = createVector(0, 0);
     this.dampening = 0.5;
   }
 

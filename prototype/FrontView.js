@@ -12,7 +12,6 @@ class FrontView {
   }
 
 
-
   inBounds(x, y) {
     if (abs(x - this.node.x) < this.sizeX && abs(y - this.node.y) < this.sizeY) {
       return true;
@@ -21,7 +20,7 @@ class FrontView {
     }
   }
 
-  clicked(x,y) {
+  clicked(x, y) {
 
   }
 

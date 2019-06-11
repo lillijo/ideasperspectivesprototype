@@ -51,11 +51,11 @@ function setupSprings() {
 function draw() {
   background(255); // Set the background to black
 
-  for(let i = 0; i<springs.length; i++){
+  for (let i = 0; i < springs.length; i++) {
     springs[i].applyTension();
   }
 
-  for(let i = 0; i<nodes.length;i++){
+  for (let i = 0; i < nodes.length; i++) {
     nodes[i].applyVelocity();
   }
 
