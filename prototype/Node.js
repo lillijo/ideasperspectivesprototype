@@ -12,6 +12,16 @@ class Node {
     }
     this.state = 0;
     this.selectedView = frontView;
+
+    this.velocity = createVector(0,0);
+    this.dampening = 0.5;
+  }
+
+  applyVelocity() {
+    this.x += this.velocity.x;
+    this.y += this.velocity.y;
+
+    this.velocity.mult(1 - this.dampening);
   }
 
   inBounds(x, y) {

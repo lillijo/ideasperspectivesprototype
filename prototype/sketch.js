@@ -10,7 +10,7 @@ function setup() {
   // createCanvas must be the first statement
   createCanvas(1920, 1080);
   stroke(255); // Set line drawing color to white
-  frameRate(30);
+  frameRate(60);
 
   rectMode(RADIUS);
 
@@ -50,6 +50,14 @@ function setupSprings() {
 // line is executed again.
 function draw() {
   background(255); // Set the background to black
+
+  for(let i = 0; i<springs.length; i++){
+    springs[i].applyTension();
+  }
+
+  for(let i = 0; i<nodes.length;i++){
+    nodes[i].applyVelocity();
+  }
 
   for (let i = 0; i < springs.length; i++) {
     springs[i].draw();
