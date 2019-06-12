@@ -10,6 +10,7 @@ let GELB = [255,255,179];
 let GRAU = [220,220,220];
 let WHITE = [255,255,255];
 let BLACK = [0,0,0];
+let description = "Office Chairs\ncover chairs with transparent\nconductive foil to monitor\nand improve sitting posture";
 
 let myFont;
 
@@ -34,19 +35,19 @@ function setup() {
 }
 
 function setupNodes() {
-  centralNode = new Node(100, 100, WHITE, BLACK, new FrontView("Idea", "Short description", 100, 50), null);
+  centralNode = new Node(100, 100, WHITE, BLACK, new FrontView("Idea", description, 100, 80), null);
 
   nodes.push(centralNode);
 
   // set up other nodes
 
-  firstFrontView = new FrontView("First", "Description text bla", 100, 50);
+  firstFrontView = new FrontView("Target Audience", "Description text bla", 90, 30);
   firstDetailedView = new DetailedView("First Detailed", "Description text bla", 300, 150);
 
   nodes.push(new Node(500, 500, LILA, WHITE, firstFrontView, firstDetailedView));
 
 
-  secondFrontView = new FrontView("Second", "Description text bla", 100, 50);
+  secondFrontView = new FrontView("Rating", "Description text bla", 90, 30);
   secondDetailedView = new DetailedView("Second Detailed", "Description text bla", 300, 150);
 
   nodes.push(new Node(600, 300, ROT,WHITE, secondFrontView, secondDetailedView));
@@ -65,13 +66,17 @@ function setupSprings() {
 function draw() {
   background(255); // Set the background to black
 
-  for (let i = 0; i < springs.length; i++) {
-    springs[i].applyTension();
-  }
-
-  for (let i = 0; i < nodes.length; i++) {
-    nodes[i].applyVelocity();
-  }
+  // for(var i = 0; i<nodes.length; i++) {
+  //   nodes[i].attractNodes(nodes);
+  // }
+  //
+  // for (let i = 0; i < springs.length; i++) {
+  //   springs[i].applyTension();
+  // }
+  //
+  // for (let i = 0; i < nodes.length; i++) {
+  //   nodes[i].applyVelocity();
+  // }
 
   for (let i = 0; i < springs.length; i++) {
     springs[i].draw();

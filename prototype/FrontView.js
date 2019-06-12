@@ -44,15 +44,23 @@ class FrontView {
       this.node.x = mouseX - this.offsetX;
       this.node.y = mouseY - this.offsetY;
     }
-
+    push();
+    noStroke();
+    fill(WHITE);
+    rect(this.node.x, this.node.y, this.sizeX+20, this.sizeY+20, 20);
+    pop();
     fill(this.node.color);
     rect(this.node.x, this.node.y, this.sizeX, this.sizeY, 20);
-
+    push();
     fill(0);
-    textAlign(CENTER, CENTER);
+    noStroke();
+    textAlign(LEFT, CENTER);
     textSize(20);
-    text(this.title, this.node.x, this.node.y - (this.sizeY / 3));
-    textSize(16);
-    text(this.text, this.node.x, this.node.y + (this.sizeY / 3));
+    text(this.title, this.node.x-this.sizeX+15, this.node.y - (this.sizeY / 3));
+    textAlign(LEFT, TOP);
+    textSize(12);
+    text(this.text, this.node.x-this.sizeX+15, this.node.y );
+    //+ (this.sizeY / 3)
+    pop();
   }
 }

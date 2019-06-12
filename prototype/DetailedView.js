@@ -56,16 +56,18 @@ class DetailedView {
       this.node.y = mouseY - this.offsetY;
     }
 
-    fill(0);
+    fill(GRAU);
     rect(this.node.x, this.node.y, this.sizeX, this.sizeY, 20);
     fill(this.node.color);
     rect(this.node.x, this.node.y, this.sizeX - this.innerBuffer, this.sizeY - this.innerBuffer, 20);
-
+    push();
     fill(0);
+    noStroke();
     textAlign(CENTER, CENTER);
     textSize(20);
     text(this.title, this.node.x, this.node.y - (this.sizeY / 3));
     textSize(16);
     text(this.text, this.node.x, this.node.y + (this.sizeY / 3));
+    pop();
   }
 }

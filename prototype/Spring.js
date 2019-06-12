@@ -3,14 +3,13 @@ class Spring {
     this.fromNode = fromNode;
     this.toNode = toNode;
 
-    this.length = 100;
     this.stiffness = 0.6;
     this.damping = 0.9;
   }
 
   draw() {
     stroke(0);
-    line(this.fromNode.x, this.fromNode.y, this.toNode.x, this.toNode.y);
+    linedash(this.fromNode.x, this.fromNode.y, this.toNode.x, this.toNode.y, 5, '-');
   }
 
   applyTension() {
