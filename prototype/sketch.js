@@ -66,17 +66,23 @@ function setupSprings() {
 function draw() {
   background(255); // Set the background to black
 
-  // for(var i = 0; i<nodes.length; i++) {
-  //   nodes[i].attractNodes(nodes);
-  // }
-  //
-  // for (let i = 0; i < springs.length; i++) {
-  //   springs[i].applyTension();
-  // }
-  //
-  // for (let i = 0; i < nodes.length; i++) {
-  //   nodes[i].applyVelocity();
-  // }
+  for (let i = 0; i < nodes.length; i++) {
+    for (let j = 0; j < nodes.length; j++) {
+      if (i===j) {
+        continue;
+      }
+
+      nodes[i].attractNode(nodes[j]);
+    }
+  }
+
+  for (let i = 0; i < springs.length; i++) {
+    springs[i].applyTension();
+  }
+
+  for (let i = 0; i < nodes.length; i++) {
+    nodes[i].applyVelocity();
+  }
 
   for (let i = 0; i < springs.length; i++) {
     springs[i].draw();

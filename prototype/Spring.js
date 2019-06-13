@@ -3,7 +3,8 @@ class Spring {
     this.fromNode = fromNode;
     this.toNode = toNode;
 
-    this.stiffness = 0.6;
+    this.length = 400;
+    this.stiffness = 0.2;
     this.damping = 0.9;
   }
 

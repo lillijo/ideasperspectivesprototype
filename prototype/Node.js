@@ -16,10 +16,31 @@ class Node {
 
     this.velocity = createVector();
     this.dampening = 0.5;
+    this.maxVelocity = 10;
+    this.ramp = 1; // Influences the shape of the function
+    this.strength = -20; // Strength: positive value attracts, negative value repels
+  }
+
+  attractNode(otherNode) {
+    let thisNodeVector = createVector(this.x, this.y);
+    let otherNodeVector = createVector(otherNode.x, otherNode.y);
+    let d = thisNodeVector.dist(otherNodeVector);
+
+    let radius = 1000;
+
+    if (d > 0 && d < radius) {
+      let s = pow(d / radius, 1 / this.ramp);
+      let f = s * 9 * this.strength * (1 / (s + 1) + ((s - 3) / 4)) / d;
+      let  df = thisNodeVector.sub(otherNodeVector);
+      df.mult(f);
+
+      otherNode.velocity.add(df);
+    }
   }
 
 
   applyVelocity() {
+    this.velocity.limit(this.maxVelocity);
 
     this.x += this.velocity.x;
     this.y += this.velocity.y;
