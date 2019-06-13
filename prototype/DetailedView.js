@@ -1,12 +1,14 @@
-// currently only a placeholder
 class DetailedView {
-  constructor(title, text, sizeX, sizeY) {
+  constructor(title, sideBar, sizeX, sizeY) {
     this.title = title;
-    this.text = text;
+    // this.content = content;
+    this.sideBar=sideBar;
     this.sizeX = sizeX;
     this.sizeY = sizeY;
+    // Groeße des aeußeren Rahmens zum Bewegen des Kaertchens
     this.innerBuffer = 20;
     this.isHeld = false;
+    this.text = "blablabla";
   }
 
   setNode(node) {
@@ -55,12 +57,14 @@ class DetailedView {
       this.node.x = mouseX - this.offsetX;
       this.node.y = mouseY - this.offsetY;
     }
-
+    // äußeres Rechteckt - Rahmen zum Bewegen der Ansicht
     fill(GRAU);
     rect(this.node.x, this.node.y, this.sizeX, this.sizeY, 20);
+    // Inneres Rechteck - eigentlicher Hintergrund
     fill(this.node.color);
     rect(this.node.x, this.node.y, this.sizeX - this.innerBuffer, this.sizeY - this.innerBuffer, 20);
     push();
+    // Content
     fill(0);
     noStroke();
     textAlign(CENTER, CENTER);
@@ -68,6 +72,8 @@ class DetailedView {
     text(this.title, this.node.x, this.node.y - (this.sizeY / 3));
     textSize(16);
     text(this.text, this.node.x, this.node.y + (this.sizeY / 3));
+    // Seitenleiste zeichnen
+    this.sideBar.draw(this.node.x, this.node.y, this.sizeX, this.sizeY, this.innerBuffer);
     pop();
   }
 }

@@ -42,13 +42,15 @@ function setupNodes() {
   // set up other nodes
 
   firstFrontView = new FrontView("Target Audience", "Description text bla", 90, 30);
-  firstDetailedView = new DetailedView("First Detailed", "Description text bla", 300, 150);
+  firstSideBar = new SideBar();
+  firstDetailedView = new DetailedView("First Detailed", firstSideBar, 300, 150);
 
   nodes.push(new Node(500, 500, LILA, WHITE, firstFrontView, firstDetailedView));
 
 
   secondFrontView = new FrontView("Rating", "Description text bla", 90, 30);
-  secondDetailedView = new DetailedView("Second Detailed", "Description text bla", 300, 150);
+  secondSideBar = new SideBar();
+  secondDetailedView = new DetailedView("Second Detailed", secondSideBar, 300, 150);
 
   nodes.push(new Node(600, 300, ROT,WHITE, secondFrontView, secondDetailedView));
 }
