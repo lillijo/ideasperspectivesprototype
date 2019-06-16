@@ -18,7 +18,7 @@ class Node {
     this.dampening = 0.5;
     this.maxVelocity = 10;
     this.ramp = 1; // Influences the shape of the function
-    this.strength = -20; // Strength: positive value attracts, negative value repels
+    this.strength = -10; // Strength: positive value attracts, negative value repels
   }
 
   attractNode(otherNode) {
@@ -26,7 +26,7 @@ class Node {
     let otherNodeVector = createVector(otherNode.x, otherNode.y);
     let d = thisNodeVector.dist(otherNodeVector);
 
-    let radius = 1000;
+    let radius = 900;
 
     if (d > 0 && d < radius) {
       let s = pow(d / radius, 1 / this.ramp);

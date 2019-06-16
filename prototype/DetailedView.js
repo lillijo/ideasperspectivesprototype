@@ -56,10 +56,10 @@ class DetailedView {
       this.node.y = mouseY - this.offsetY;
     }
     // äußeres Rechteckt - Rahmen zum Bewegen der Ansicht
-    fill(GRAU);
+    fill(this.node.color);
     rect(this.node.x, this.node.y, this.sizeX, this.sizeY, 20);
     // Inneres Rechteck - eigentlicher Hintergrund
-    fill(this.node.color);
+    fill(WHITE);
     rect(this.node.x, this.node.y, this.sizeX - this.innerBuffer, this.sizeY - this.innerBuffer, 20);
     push();
     // Content

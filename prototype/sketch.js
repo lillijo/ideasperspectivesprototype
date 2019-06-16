@@ -35,26 +35,48 @@ function setup() {
 }
 
 function setupNodes() {
-  centralNode = new Node(100, 100, WHITE, BLACK, new FrontView("Idea", description, 100, 80), null);
+  centralNode = new Node(1000, 500, WHITE, BLACK, new FrontView("Idea", description, 100, 80), null);
 
   nodes.push(centralNode);
 
   // set up other nodes
 
-  firstFrontView = new FrontView("Target Audience", "Description text bla", 90, 30);
-  firstSideBar = new SideBar(WHITE);
-  firstContent = new Content("first contend teitel", "fist very good text, and it works!");
+  firstFrontView = new FrontView("Target Audience", "", 90, 30);
+  firstSideBar = new SideBar(ROT);
+  firstContent = new Content("first content title", "fist very good text, and it works!");
   firstDetailedView = new DetailedView(firstContent, firstSideBar, 300, 150);
 
-  nodes.push(new Node(500, 500, LILA, WHITE, firstFrontView, firstDetailedView));
+  nodes.push(new Node(500, 700, ROT, WHITE, firstFrontView, firstDetailedView));
 
 
-  secondFrontView = new FrontView("Rating", "Description text bla", 90, 30);
-  secondSideBar = new SideBar(GRUEN);
+  secondFrontView = new FrontView("Rating", "", 90, 30);
+  secondSideBar = new SideBar(LILA);
   secondContent = new Content("Second Detailed Title", "This is a very long an meaningful content. Enjoy it!");
   secondDetailedView = new DetailedView(secondContent, secondSideBar, 300, 150);
 
-  nodes.push(new Node(600, 300, ROT,WHITE, secondFrontView, secondDetailedView));
+  nodes.push(new Node(600, 300, LILA,WHITE, secondFrontView, secondDetailedView));
+
+
+  thirdFrontView = new FrontView("Description", "", 90, 30);
+  thirdSideBar = new SideBar(GELB);
+  thirdContent = new Content("third content title", "third very good text, and it works!");
+  thirdDetailedView = new DetailedView(thirdContent, thirdSideBar, 300, 150);
+
+  nodes.push(new Node(1500, 500, GELB, WHITE, thirdFrontView, thirdDetailedView));
+
+  fourthFrontView = new FrontView("Categories", "", 90, 30);
+  fourthSideBar = new SideBar(GRUEN);
+  fourthContent = new Content("categories tags", "blablabla very good text, and it works!");
+  fourthDetailedView = new DetailedView(fourthContent, fourthSideBar, 300, 150);
+
+  nodes.push(new Node(1500, 700, GRUEN, WHITE, fourthFrontView, fourthDetailedView));
+
+  contextFrontView = new FrontView("Context", "", 90, 30);
+  contextSideBar = new SideBar(GRAU);
+  contextContent = new Content("Context", "third very good text, and it works!");
+  contextDetailedView = new DetailedView(contextContent, contextSideBar, 300, 150);
+
+  nodes.push(new Node(1000, 100, GRAU, WHITE, contextFrontView, contextDetailedView));
 }
 
 function setupSprings() {

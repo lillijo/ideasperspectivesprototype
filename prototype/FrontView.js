@@ -52,15 +52,24 @@ class FrontView {
     fill(this.node.color);
     rect(this.node.x, this.node.y, this.sizeX, this.sizeY, 20);
     push();
-    fill(0);
-    noStroke();
-    textAlign(LEFT, CENTER);
-    textSize(20);
-    text(this.title, this.node.x-this.sizeX+15, this.node.y - (this.sizeY / 3));
-    textAlign(LEFT, TOP);
-    textSize(12);
-    text(this.text, this.node.x-this.sizeX+15, this.node.y );
-    //+ (this.sizeY / 3)
+    if (this.text != ""){
+      fill(0);
+      noStroke();
+      textAlign(LEFT, CENTER);
+      textSize(20);
+      text(this.title, this.node.x-this.sizeX+15, this.node.y - (this.sizeY / 3));
+      textAlign(LEFT, TOP);
+      textSize(12);
+      text(this.text, this.node.x-this.sizeX+15, this.node.y );
+      //+ (this.sizeY / 3)
+    } else {
+      fill(0);
+      noStroke();
+      textAlign(CENTER, CENTER);
+      textSize(20);
+      text(this.title, this.node.x, this.node.y);
+    }
+
     pop();
   }
 }
