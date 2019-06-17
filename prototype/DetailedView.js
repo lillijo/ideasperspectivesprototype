@@ -28,7 +28,19 @@ class DetailedView {
   }
 
   clicked(x, y) {
-    this.content.clicked(x,y);
+    if (abs(x - (this.node.x+(this.sizeX-28))) < 40 &&
+      abs(y - (this.node.y-(this.sizeY-5))) < 40 &&
+      abs(x - this.node.x) > this.sizeX - this.innerBuffer ||
+      abs(y - this.node.y) > this.sizeY - this.innerBuffer)  {
+      console.log("clicked on frame");
+      this.content.clicked(x,y);
+    } else {
+      this.content.clicked(x,y);
+    }
+  }
+
+  dragged(x, y) {
+    this.content.dragged(x,y);
   }
 
   doubleClicked(x, y) {
@@ -45,6 +57,9 @@ class DetailedView {
 
       this.offsetX = mouseX - this.node.x;
       this.offsetY = mouseY - this.node.y;
+
+    } else {
+      this.content.pressed(x,y);
     }
   }
 
