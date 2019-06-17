@@ -78,6 +78,10 @@ class Node {
     }
   }
 
+  drawSpacer() {
+    this.selectedView.drawSpacer();
+  }
+
   draw() {
     stroke(this.lineColor);
     this.selectedView.draw(this.x, this.y);

@@ -114,6 +114,8 @@ function draw() {
     springs[i].draw();
   }
 
+  drawSpacers();
+
   for (let i = 0; i < nodes.length; i++) {
     if (nodes[i] != selectedNode) {
       nodes[i].draw();
@@ -122,6 +124,12 @@ function draw() {
 
   if (selectedNode != null) {
     selectedNode.draw();
+  }
+}
+
+function drawSpacers(){
+  for (let i = 0; i < nodes.length; i++) {
+    nodes[i].drawSpacer();
   }
 }
 

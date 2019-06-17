@@ -39,16 +39,19 @@ class FrontView {
     this.isHeld = false;
   }
 
-  draw() {
-    if (this.isHeld) {
-      this.node.x = mouseX - this.offsetX;
-      this.node.y = mouseY - this.offsetY;
-    }
+  drawSpacer() {
     push();
     noStroke();
     fill(WHITE);
     rect(this.node.x, this.node.y, this.sizeX+20, this.sizeY+20, 20);
     pop();
+  }
+
+  draw() {
+    if (this.isHeld) {
+      this.node.x = mouseX - this.offsetX;
+      this.node.y = mouseY - this.offsetY;
+    }
     fill(this.node.color);
     rect(this.node.x, this.node.y, this.sizeX, this.sizeY, 20);
     push();

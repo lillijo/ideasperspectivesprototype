@@ -50,6 +50,10 @@ class DetailedView {
     this.isHeld = false;
   }
 
+  drawSpacer() {
+    //NOP
+  }
+
   draw() {
     if (this.isHeld) {
       this.node.x = mouseX - this.offsetX;
