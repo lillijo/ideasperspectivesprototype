@@ -11,6 +11,7 @@ let GRAU = [220,220,220];
 let WHITE = [255,255,255];
 let BLACK = [0,0,0];
 let description = "Office Chairs\ncover chairs with transparent\nconductive foil to monitor\nand improve sitting posture";
+
 //font type
 let myFont;
 
@@ -59,7 +60,7 @@ function setupNodes() {
 
   firstFrontView = new FrontView("Target Audience", "", 90, 30);
   firstSideBar = new SideBar(ROT);
-  firstContent = new Content("Target Audience", "fist very good text, and it works!");
+  firstContent = new Content("Target Audience", "Here are all target groups that could be using an outcome of this idea");
   firstDetailedView = new DetailedView(firstContent, firstSideBar, 300, 150);
 
   nodes.push(new Node(500, 700, ROT, WHITE, firstFrontView, firstDetailedView));
@@ -158,6 +159,16 @@ function mouseClicked() {
     selectedNode = nodeUnderMouse;
 
     nodeUnderMouse.clicked();
+  }
+}
+
+function mouseDragged() {
+  nodeUnderMouse = getNodeUnderMouse();
+
+  if (nodeUnderMouse != null) {
+    selectedNode = nodeUnderMouse;
+
+    nodeUnderMouse.dragged();
   }
 }
 
