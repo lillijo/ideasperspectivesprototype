@@ -60,6 +60,7 @@ class FrontView {
       textAlign(LEFT, TOP);
       textSize(12);
       text(this.text, this.node.x-this.sizeX+15, this.node.y );
+
       //+ (this.sizeY / 3)
     } else {
       fill(0);
@@ -67,6 +68,7 @@ class FrontView {
       textAlign(CENTER, CENTER);
       textSize(20);
       text(this.title, this.node.x, this.node.y);
+      image(touch, this.node.x-5, this.node.y+7,20,20);
     }
 
     pop();

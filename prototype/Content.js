@@ -9,11 +9,16 @@ class Content {
         push();
         fill(0);
         noStroke();
-        textAlign(CENTER, CENTER);
+        textAlign(LEFT, TOP);
         textSize(20);
-        text(this.title, xCoor, yCoor - (sizeY / 3));
-        textSize(16);
-        text(this.text, xCoor, yCoor + (sizeY / 3));
+        text(this.title, xCoor-(sizeX-30), yCoor-(sizeY-30));
         pop();
+        image(cross, xCoor+(sizeX-28), yCoor-(sizeY-5),20,20);
+
     }
+
+    clicked(x, y) {
+      if (console.log("detailView is clicked"));
+    }
+
 }

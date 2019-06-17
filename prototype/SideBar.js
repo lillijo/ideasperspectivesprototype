@@ -26,7 +26,7 @@ class SideBar {
         fill(this.backgroundColor);
         // x-Position: Mittelpunkt Knoten + Ausdehnung in x Richtung - Rahmen - Ausdehnung x richtung der Sidebar
         // = Sidebar liegt an der rechten Seite am Rahmen an
-        rect(xCoor + sizeX - innerBuffer - sizeX/8, yCoor, sizeX/8, sizeY - innerBuffer, 20);
+        rect(xCoor + sizeX - innerBuffer - sizeX/5, yCoor, sizeX/5, sizeY - innerBuffer, 20);
 
         pop();
     }

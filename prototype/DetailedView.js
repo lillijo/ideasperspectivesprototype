@@ -26,7 +26,7 @@ class DetailedView {
   }
 
   clicked(x, y) {
-
+    this.content.clicked(x,y);
   }
 
   doubleClicked(x, y) {
@@ -55,11 +55,12 @@ class DetailedView {
   }
 
   draw() {
-    // äußeres Rechteckt - Rahmen zum Bewegen der Ansicht
+    // äußeres Rechteck - Rahmen zum Bewegen der Ansicht
     fill(this.node.color);
     rect(this.node.x, this.node.y, this.sizeX, this.sizeY, 20);
     // Inneres Rechteck - eigentlicher Hintergrund
     fill(WHITE);
+    stroke(WHITE);
     rect(this.node.x, this.node.y, this.sizeX - this.innerBuffer, this.sizeY - this.innerBuffer, 20);
     push();
     // Content

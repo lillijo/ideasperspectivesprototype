@@ -11,11 +11,27 @@ let GRAU = [220,220,220];
 let WHITE = [255,255,255];
 let BLACK = [0,0,0];
 let description = "Office Chairs\ncover chairs with transparent\nconductive foil to monitor\nand improve sitting posture";
-
+//font type
 let myFont;
+
+//icons:
+let cross;
+let comment;
+let rotation;
+let touch;
+let plus;
+let attach;
+let trash;
 
 // preload function loads styles, fonts etc.
 function preload() {
+  cross = loadImage('icons/png/noun_Cross_1106014.png');
+  comment = loadImage('icons/png/noun_chat bubble_1634538.png');
+  rotation = loadImage('icons/png/noun_rotation_1106030.png');
+  touch = loadImage('icons/png/noun_touch_gesture_1106042.png');
+  plus = loadImage('icons/png/noun_Plus_1119863.png');
+  attach = loadImage('icons/png/noun_attach_1106017.png');
+  trash = loadImage('icons/png/noun_Trash_1106040.png');
 }
 
 // The statements in the setup() function
@@ -43,7 +59,7 @@ function setupNodes() {
 
   firstFrontView = new FrontView("Target Audience", "", 90, 30);
   firstSideBar = new SideBar(ROT);
-  firstContent = new Content("first content title", "fist very good text, and it works!");
+  firstContent = new Content("Target Audience", "fist very good text, and it works!");
   firstDetailedView = new DetailedView(firstContent, firstSideBar, 300, 150);
 
   nodes.push(new Node(500, 700, ROT, WHITE, firstFrontView, firstDetailedView));
@@ -51,7 +67,7 @@ function setupNodes() {
 
   secondFrontView = new FrontView("Rating", "", 90, 30);
   secondSideBar = new SideBar(LILA);
-  secondContent = new Content("Second Detailed Title", "This is a very long an meaningful content. Enjoy it!");
+  secondContent = new Content("Rating", "This is a very long an meaningful content. Enjoy it!");
   secondDetailedView = new DetailedView(secondContent, secondSideBar, 300, 150);
 
   nodes.push(new Node(600, 300, LILA,WHITE, secondFrontView, secondDetailedView));
@@ -59,14 +75,14 @@ function setupNodes() {
 
   thirdFrontView = new FrontView("Description", "", 90, 30);
   thirdSideBar = new SideBar(GELB);
-  thirdContent = new Content("third content title", "third very good text, and it works!");
+  thirdContent = new Content("Description", "third very good text, and it works!");
   thirdDetailedView = new DetailedView(thirdContent, thirdSideBar, 300, 150);
 
   nodes.push(new Node(1500, 500, GELB, WHITE, thirdFrontView, thirdDetailedView));
 
   fourthFrontView = new FrontView("Categories", "", 90, 30);
   fourthSideBar = new SideBar(GRUEN);
-  fourthContent = new Content("categories tags", "blablabla very good text, and it works!");
+  fourthContent = new Content("Categories", "blablabla very good text, and it works!");
   fourthDetailedView = new DetailedView(fourthContent, fourthSideBar, 300, 150);
 
   nodes.push(new Node(1500, 700, GRUEN, WHITE, fourthFrontView, fourthDetailedView));
@@ -135,7 +151,7 @@ function drawSpacers(){
   }
 }
 
-function clicked() {
+function mouseClicked() {
   nodeUnderMouse = getNodeUnderMouse();
 
   if (nodeUnderMouse != null) {
