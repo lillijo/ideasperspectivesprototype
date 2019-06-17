@@ -9,7 +9,7 @@ class Node {
     this.lineColor = lineColor;
 
     if (this.detailView != null) {
-      this.detailView.setNode(this);
+      this.detailView.setElementDependencies(this);
     }
     this.state = 0;
     this.selectedView = frontView;

@@ -9,8 +9,10 @@ class DetailedView {
     this.isHeld = false;
   }
 
-  setNode(node) {
+  setElementDependencies(node) {
     this.node = node;
+    this.content.setDetailedView(this);
+    this.sideBar.setDetailedView(this);
   }
 
 

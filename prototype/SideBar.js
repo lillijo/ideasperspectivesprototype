@@ -4,6 +4,9 @@ class SideBar {
         this.backgroundColor = backgroundColor;
 
     }
+    setDetailedView(detailedView){
+        this.detailedView = detailedView;
+    }
     // Laesst den Nutzer den Content bearbeiten
     editAction(){
 

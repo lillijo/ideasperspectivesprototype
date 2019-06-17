@@ -56,10 +56,11 @@ function setupNodes() {
   nodes.push(centralNode);
 
   // set up other nodes
+  closeIcon = new Icon(20,20,cross);
 
   firstFrontView = new FrontView("Target Audience", "", 90, 30);
   firstSideBar = new SideBar(ROT);
-  firstContent = new Content("Target Audience", "fist very good text, and it works!");
+  firstContent = new Content("Target Audience", "fist very good text, and it works!", closeIcon);
   firstDetailedView = new DetailedView(firstContent, firstSideBar, 300, 150);
 
   nodes.push(new Node(500, 700, ROT, WHITE, firstFrontView, firstDetailedView));
@@ -67,7 +68,7 @@ function setupNodes() {
 
   secondFrontView = new FrontView("Rating", "", 90, 30);
   secondSideBar = new SideBar(LILA);
-  secondContent = new Content("Rating", "This is a very long an meaningful content. Enjoy it!");
+  secondContent = new Content("Rating", "This is a very long an meaningful content. Enjoy it!", closeIcon);
   secondDetailedView = new DetailedView(secondContent, secondSideBar, 300, 150);
 
   nodes.push(new Node(600, 300, LILA,WHITE, secondFrontView, secondDetailedView));
@@ -75,21 +76,21 @@ function setupNodes() {
 
   thirdFrontView = new FrontView("Description", "", 90, 30);
   thirdSideBar = new SideBar(GELB);
-  thirdContent = new Content("Description", "third very good text, and it works!");
+  thirdContent = new Content("Description", "third very good text, and it works!", closeIcon);
   thirdDetailedView = new DetailedView(thirdContent, thirdSideBar, 300, 150);
 
   nodes.push(new Node(1500, 500, GELB, WHITE, thirdFrontView, thirdDetailedView));
 
   fourthFrontView = new FrontView("Categories", "", 90, 30);
   fourthSideBar = new SideBar(GRUEN);
-  fourthContent = new Content("Categories", "blablabla very good text, and it works!");
+  fourthContent = new Content("Categories", "blablabla very good text, and it works!", closeIcon);
   fourthDetailedView = new DetailedView(fourthContent, fourthSideBar, 300, 150);
 
   nodes.push(new Node(1500, 700, GRUEN, WHITE, fourthFrontView, fourthDetailedView));
 
   contextFrontView = new FrontView("Context", "", 90, 30);
   contextSideBar = new SideBar(GRAU);
-  contextContent = new Content("Context", "third very good text, and it works!");
+  contextContent = new Content("Context", "third very good text, and it works!", closeIcon);
   contextDetailedView = new DetailedView(contextContent, contextSideBar, 300, 150);
 
   nodes.push(new Node(1000, 100, GRAU, WHITE, contextFrontView, contextDetailedView));
@@ -157,7 +158,7 @@ function mouseClicked() {
   if (nodeUnderMouse != null) {
     selectedNode = nodeUnderMouse;
 
-    nodeUnderMouse.clicked();
+    nodeUnderMouse.clicked(mouseX, mouseY);
   }
 }
 
