@@ -108,6 +108,8 @@ function draw() {
 
   for (let i = 0; i < nodes.length; i++) {
     nodes[i].applyVelocity();
+    nodes[i].setPositionIfHeld();
+    nodes[i].limitPosition();
   }
 
   for (let i = 0; i < springs.length; i++) {

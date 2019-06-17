@@ -55,10 +55,6 @@ class DetailedView {
   }
 
   draw() {
-    if (this.isHeld) {
-      this.node.x = mouseX - this.offsetX;
-      this.node.y = mouseY - this.offsetY;
-    }
     // äußeres Rechteckt - Rahmen zum Bewegen der Ansicht
     fill(this.node.color);
     rect(this.node.x, this.node.y, this.sizeX, this.sizeY, 20);

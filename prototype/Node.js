@@ -48,6 +48,30 @@ class Node {
     this.velocity.mult(1 - this.dampening);
   }
 
+  setPositionIfHeld() {
+    if (this.selectedView.isHeld) {
+      this.x = mouseX - this.selectedView.offsetX;
+      this.y = mouseY - this.selectedView.offsetY;
+    }
+  }
+
+  limitPosition() {
+    if (this.x - this.selectedView.sizeX < 0) {
+      this.x = this.selectedView.sizeX;
+    }
+    else if (this.x + this.selectedView.sizeX > width) {
+      this.x = width - this.selectedView.sizeX;
+    }
+
+    if (this.y - this.selectedView.sizeY < 0) {
+      this.y = this.selectedView.sizeY;
+    }
+
+    else if (this.y + this.selectedView.sizeY > height) {
+      this.y = height - this.selectedView.sizeY;
+    }
+  }
+
   inBounds(x, y) {
     return this.selectedView.inBounds(x, y);
   }
