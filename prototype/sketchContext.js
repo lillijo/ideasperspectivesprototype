@@ -10,11 +10,12 @@ let GELB = [255,255,179];
 let GRAU = [220,220,220];
 let WHITE = [255,255,255];
 let BLACK = [0,0,0];
-let description = "Office Chairs\ncover chairs with transparent\nconductive foil to monitor\nand improve sitting posture";
+let cdesc = "Transparent Conductive Oxides \nTCO \nare thin, transparent, flexible \nfoils that are conductive. \nThey can be used for \nelectriv circuits."
+let description = "Cover chairs with transparent\nconductive foil to monitor\nand improve sitting posture";
+let tablet = "the whole table could \nbe covered with TCO \nthat powers LEDs to enable \nplayful interactions";
+let nightads = "Cover beautiful fassades \nwith transparent foil \nthat displays ads \nonly at night";
 //font type
 let myFont;
-
-
 
 //icons:
 let cross;
@@ -34,7 +35,6 @@ function preload() {
   plus = loadImage('icons/png/noun_Plus_1119863.png');
   attach = loadImage('icons/png/noun_attach_1106017.png');
   trash = loadImage('icons/png/noun_Trash_1106040.png');
-  back = loadImage('icons/png/noun_Arrow_700186.png');
 }
 
 // The statements in the setup() function
@@ -42,7 +42,7 @@ function preload() {
 function setup() {
   textFont("Lato");
   // createCanvas must be the first statement
-  createCanvas(1820, 950);
+  createCanvas(1920, 1080);
   stroke(255); // Set line drawing color to white
   frameRate(60);
 
@@ -54,22 +54,22 @@ function setup() {
 }
 
 function setupNodes() {
-  centralNode = new Node(1000, 500, WHITE, BLACK, new FrontView("Idea", description, 100, 80), null);
+  centralNode = new Node(1000, 500, WHITE, BLACK, new FrontView("Context", cdesc, 100, 100), null);
 
   nodes.push(centralNode);
 
   // set up other nodes
   closeIcon = new Icon(20,20,cross);
 
-  firstFrontView = new FrontView("Target Audience", "", 90, 30);
+  firstFrontView = new FrontView("Office Chairs", description, 100, 100);
   firstSideBar = new SideBar(ROT);
   firstContent = new Content("Target Audience", "Here are all target groups that could be using an outcome of this idea", closeIcon);
   firstDetailedView = new DetailedView(firstContent, firstSideBar, 300, 150);
 
-  nodes.push(new Node(500, 700, ROT, WHITE, firstFrontView, firstDetailedView));
+  nodes.push(new Node(100, 700, ROT, WHITE, firstFrontView, firstDetailedView));
 
 
-  secondFrontView = new FrontView("Rating", "", 90, 30);
+  secondFrontView = new FrontView("Table Tennis",tablet, 100, 100);
   secondSideBar = new SideBar(LILA);
   secondContent = new Content("Rating", "This is a very long an meaningful content. Enjoy it!", closeIcon);
   secondDetailedView = new DetailedView(secondContent, secondSideBar, 300, 150);
@@ -77,26 +77,13 @@ function setupNodes() {
   nodes.push(new Node(600, 300, LILA,WHITE, secondFrontView, secondDetailedView));
 
 
-  thirdFrontView = new FrontView("Description", "", 90, 30);
+  thirdFrontView = new FrontView("Night Ads", nightads, 100, 100);
   thirdSideBar = new SideBar(GELB);
   thirdContent = new Content("Description", "third very good text, and it works!", closeIcon);
   thirdDetailedView = new DetailedView(thirdContent, thirdSideBar, 300, 150);
 
-  nodes.push(new Node(1500, 500, GELB, WHITE, thirdFrontView, thirdDetailedView));
+  nodes.push(new Node(1500, 700, GELB, WHITE, thirdFrontView, thirdDetailedView));
 
-  fourthFrontView = new FrontView("Categories", "", 90, 30);
-  fourthSideBar = new SideBar(GRUEN);
-  fourthContent = new Content("Categories", "blablabla very good text, and it works!", closeIcon);
-  fourthDetailedView = new DetailedView(fourthContent, fourthSideBar, 300, 150);
-
-  nodes.push(new Node(1500, 700, GRUEN, WHITE, fourthFrontView, fourthDetailedView));
-
-  contextFrontView = new FrontView("Context", "", 90, 30);
-  contextSideBar = new SideBar(GRAU);
-  contextContent = new Content("Context", "third very good text, and it works!", closeIcon);
-  contextDetailedView = new DetailedView(contextContent, contextSideBar, 300, 150);
-
-  nodes.push(new Node(1000, 100, GRAU, WHITE, contextFrontView, contextDetailedView));
 }
 
 function setupSprings() {
@@ -111,8 +98,6 @@ function setupSprings() {
 // line is executed again.
 function draw() {
   background(255); // Set the background to black
-
-  image(back, 50,50,50,50);
 
   for (let i = 0; i < nodes.length; i++) {
     for (let j = 0; j < nodes.length; j++) {
