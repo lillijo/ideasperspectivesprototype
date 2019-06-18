@@ -19,9 +19,15 @@ class Node {
     this.maxVelocity = 10;
     this.ramp = 1; // Influences the shape of the function
     this.strength = -10; // Strength: positive value attracts, negative value repels
+
+    this.canMove = true;
   }
 
   attractNode(otherNode) {
+    if(!otherNode.canMove) {
+      return;
+    }
+
     let thisNodeVector = createVector(this.x, this.y);
     let otherNodeVector = createVector(otherNode.x, otherNode.y);
     let d = thisNodeVector.dist(otherNodeVector);
@@ -40,6 +46,10 @@ class Node {
 
 
   applyVelocity() {
+    if(!this.canMove) {
+      return;
+    }
+
     this.velocity.limit(this.maxVelocity);
 
     this.x += this.velocity.x;
@@ -49,6 +59,10 @@ class Node {
   }
 
   setPositionIfHeld() {
+    if(!this.canMove) {
+      return;
+    }
+
     if (this.selectedView.isHeld) {
       this.x = mouseX - this.selectedView.offsetX;
       this.y = mouseY - this.selectedView.offsetY;
