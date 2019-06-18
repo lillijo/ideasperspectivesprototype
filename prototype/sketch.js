@@ -163,16 +163,6 @@ function mouseClicked() {
   }
 }
 
-function mouseDragged() {
-  nodeUnderMouse = getNodeUnderMouse();
-
-  if (nodeUnderMouse != null) {
-    selectedNode = nodeUnderMouse;
-
-    nodeUnderMouse.dragged();
-  }
-}
-
 function doubleClicked() {
   nodeUnderMouse = getNodeUnderMouse();
 

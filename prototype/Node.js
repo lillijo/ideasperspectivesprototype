@@ -102,10 +102,6 @@ class Node {
     this.selectedView.pressed(x, y);
   }
 
-  dragged(x, y) {
-    this.selectedView.dragged(x, y);
-  }
-
   released(x, y) {
     this.selectedView.released(x, y);
   }
