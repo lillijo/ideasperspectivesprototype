@@ -54,7 +54,8 @@ function setup() {
 }
 
 function setupNodes() {
-  centralNode = new Node(1000, 500, WHITE, BLACK, new FrontView("Idea", description, 100, 80), null);
+  centralNode = new Node(width/2, height/2, WHITE, BLACK, new FrontView("Idea", description, 100, 80), null);
+  centralNode.canMove = false;
 
   nodes.push(centralNode);
 
@@ -164,16 +165,6 @@ function mouseClicked() {
     selectedNode = nodeUnderMouse;
 
     nodeUnderMouse.clicked(mouseX, mouseY);
-  }
-}
-
-function mouseDragged() {
-  nodeUnderMouse = getNodeUnderMouse();
-
-  if (nodeUnderMouse != null) {
-    selectedNode = nodeUnderMouse;
-
-    nodeUnderMouse.dragged();
   }
 }
 
