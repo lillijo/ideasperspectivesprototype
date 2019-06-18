@@ -36,9 +36,22 @@ class Content {
           image(trash, xCoor-(sizeX-30),yCoor+70,40,40);
           pop();
         }
-
-        this.closeIcon.draw(xCoor+(sizeX-28), yCoor - (sizeY-5));
+        imageMode(CENTER);
+        this.closeIcon.draw(xCoor+(sizeX-20), yCoor - sizeY+10);
         pop();
+
+    }
+    iconIsClicked(x,y, icon){
+        // get Icon stats
+        console.log("cross checked");
+        let iconXPosition = this.parent.node.x + icon.relativeXCoor;
+        let iconYPosition = this.parent.node.y + icon.relativeYCoor;
+        if (iconXPosition - icon.sizeX/2 < x && x < iconXPosition + icon.sizeX/2
+            && iconYPosition - icon.sizeY/2 < y && y < iconYPosition + icon.sizeY/2 ){
+            console.log("cross clicked");
+            return true;
+        }
+        return false;
 
     }
     closeIconIsClicked(x,y){
@@ -57,7 +70,7 @@ class Content {
     }
 
     clicked(x, y) {
-        if (this.closeIconIsClicked(x,y)){
+        if (this.iconIsClicked(x,y, this.closeIcon)){
             this.closeIcon.clicked(this.parent.node);
         }
       if (console.log("detailView is clicked"));

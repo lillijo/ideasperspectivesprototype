@@ -57,7 +57,7 @@ function setupNodes() {
   nodes.push(centralNode);
 
   // set up other nodes
-  closeIcon = new Icon(20,20,cross);
+  closeIcon = new Icon(300-20,150+20,20,20,"close",cross);
 
   firstFrontView = new FrontView("Target Audience", "", 90, 30);
   firstSideBar = new SideBar(ROT);
