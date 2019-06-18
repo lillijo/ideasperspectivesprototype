@@ -14,8 +14,14 @@ class Spring {
   }
 
   applyTension() {
+    let minDist = 200;
+
     let fromVector = createVector(this.fromNode.x, this.fromNode.y);
     let toVector = createVector(this.toNode.x, this.toNode.y);
+
+    if (fromVector.dist(toVector) < minDist) {
+      return;
+    }
 
     let diff = p5.Vector.sub(fromVector, toVector);
     diff.normalize();
