@@ -34,13 +34,6 @@ class FrontView {
     this.offsetX = mouseX - this.node.x;
     this.offsetY = mouseY - this.node.y;
   }
-  
-  dragged(x, y) {
-    this.isHeld = true;
-
-    this.offsetX = mouseX - this.node.x;
-    this.offsetY = mouseY - this.node.y;
-  }
 
   released(x, y) {
     this.isHeld = false;

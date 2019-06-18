@@ -39,10 +39,6 @@ class DetailedView {
     }
   }
 
-  dragged(x, y) {
-    this.content.dragged(x,y);
-  }
-
   doubleClicked(x, y) {
     this.node.switchViews();
   }
