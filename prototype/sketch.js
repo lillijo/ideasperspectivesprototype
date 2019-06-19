@@ -10,10 +10,10 @@ let GELB = [255,255,179];
 let GRAU = [220,220,220];
 let WHITE = [255,255,255];
 let BLACK = [0,0,0];
-let description = "Office Chairs\ncover chairs with transparent\nconductive foil to monitor\nand improve sitting posture";
+let description = "cover chairs with transparent\nconductive foil to monitor\nand improve sitting posture";
 //font type
 let myFont;
-
+let infoBar;
 
 
 //icons:
@@ -24,6 +24,8 @@ let touch;
 let plus;
 let attach;
 let trash;
+let edit;
+let overviewMock;
 
 // preload function loads styles, fonts etc.
 function preload() {
@@ -35,6 +37,10 @@ function preload() {
   attach = loadImage('icons/png/noun_attach_1106017.png');
   trash = loadImage('icons/png/noun_Trash_1106040.png');
   back = loadImage('icons/png/noun_Arrow_700186.png');
+  info = loadImage('icons/png/noun_Information_1119843.png');
+  edit = loadImage('icons/png/noun_edit_1106024.png');
+  edit2 = loadImage('icons/png/noun_Pencil_1119855.png');
+  overviewMock = loadImage('icons/ContextOverview.png');
 }
 
 // The statements in the setup() function
@@ -48,9 +54,15 @@ function setup() {
 
   rectMode(RADIUS);
 
+  infoBar = new Info(1750,50);
+  //infoBar.inBounds(mouseX,mouseY);
+  overview = new Overview(50,50);
+
+
   setupNodes();
 
   setupSprings();
+
 }
 
 function setupNodes() {
@@ -111,9 +123,10 @@ function setupSprings() {
 // sequence and after the last line is read, the first
 // line is executed again.
 function draw() {
-  background(255); // Set the background to black
+  background(255); // Set the background to white
 
-  image(back, 50,50,50,50);
+  infoBar.draw();
+  overview.draw();
 
   for (let i = 0; i < nodes.length; i++) {
     for (let j = 0; j < nodes.length; j++) {
@@ -166,6 +179,8 @@ function mouseClicked() {
 
     nodeUnderMouse.clicked(mouseX, mouseY);
   }
+  infoBar.inBounds(mouseX,mouseY);
+  overview.inBounds(mouseX,mouseY);
 }
 
 function doubleClicked() {
@@ -176,6 +191,7 @@ function doubleClicked() {
 
     nodeUnderMouse.doubleClicked();
   }
+
 }
 
 function mousePressed() {
@@ -204,6 +220,9 @@ function getNodeUnderMouse() {
     }
   }
 }
+
+
+
 
 function linedash(x1, y1, x2, y2, delta, style = '-') {
   // delta is both the length of a dash, the distance between 2 dots/dashes, and the diameter of a round

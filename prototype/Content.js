@@ -60,14 +60,9 @@ class Content {
         if (this.closeIconIsClicked(x,y)){
             this.closeIcon.clicked(this.parent.node);
         }
-      if (console.log("detailView is clicked"));
 
-      console.log("clicked");
     }
 
-    dragged(x, y) {
-      console.log("detailView is dragged, you can use drag and drop to put user group in trash");
-    }
 
     pressed(x,y) {
       console.log("pressed");
