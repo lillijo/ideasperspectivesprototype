@@ -11,11 +11,4 @@ class Icon {
         image(this.img, xCoor, yCoor,this.sizeX,this.sizeY);
 
     }
-    clicked(node) {
-            node.switchViews();
-
-
-
-
-    }
 }
