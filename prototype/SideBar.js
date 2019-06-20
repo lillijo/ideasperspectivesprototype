@@ -43,13 +43,12 @@ class SideBar {
         fill(this.backgroundColor);
         // x-Position: Mittelpunkt Knoten + Ausdehnung in x Richtung - Rahmen - Ausdehnung x richtung der Sidebar
         // = Sidebar liegt an der rechten Seite am Rahmen an
-        rect(xCoor + sizeX - innerBuffer - sizeX/7, yCoor, sizeX/7, sizeY - innerBuffer, 20);
-        imageMode(CORNER);
-        image(trash, xCoor+ sizeX - innerBuffer - sizeX/7-20,yCoor+80,40,40);
-
-        image(plus, xCoor+ sizeX - innerBuffer - sizeX/7-20,yCoor-120,40,40);
-        image(comment, xCoor+ sizeX - innerBuffer - sizeX/7-20,yCoor-70,40,40);
-        image(attach, xCoor+ sizeX - innerBuffer - sizeX/7-20,yCoor-20,40,40);
+        rect(xCoor + sizeX - innerBuffer - sizeX/9, yCoor, sizeX/9, sizeY - innerBuffer, 20);
+        imageMode(CENTER);
+        image(plus, xCoor+ sizeX - innerBuffer - sizeX/9,yCoor-100,40,40);
+        image(comment, xCoor+ sizeX - innerBuffer - sizeX/9,yCoor-50,40,40);
+        image(attach, xCoor+ sizeX - innerBuffer - sizeX/9,yCoor,40,40);
+        image(trash, xCoor+ sizeX - innerBuffer - sizeX/9,yCoor+100,40,40);
 
         pop();
     }

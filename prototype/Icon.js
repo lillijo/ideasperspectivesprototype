@@ -10,6 +10,10 @@ class Icon {
     draw(xCoor, yCoor){
         tint(255,70);
         image(this.img, xCoor, yCoor,this.sizeX,this.sizeY);
-
     }
+
+
+
+
+
 }
