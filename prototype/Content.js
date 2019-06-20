@@ -44,13 +44,11 @@ class Content {
     }
     closeIconIsClicked(x,y){
         // get Icon stats
-        console.log("cross checked");
         let iconXPosition = this.parent.node.x + 285;
         let iconYPosition = this.parent.node.y - 135;
         // 10 is icon size in jede Richtung, d.h. ein 20x20 großes Klickfeld
         if (iconXPosition - 10 < x && x < iconXPosition + 10
             && iconYPosition - 10 < y && y < iconYPosition + 10){
-            console.log("cross clicked");
             return true;
         }
         return false;
@@ -60,7 +58,6 @@ class Content {
     clicked(x, y) {
         if (this.closeIconIsClicked(x,y)){
             this.parent.node.switchViews();
-            console.log("schließe dich!!");
         }
     }
 

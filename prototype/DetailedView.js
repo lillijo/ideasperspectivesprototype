@@ -27,7 +27,7 @@ class DetailedView {
     if (this.popUp != null && this.popUp.inBounds(x, y)) {
       this.popUp.clicked(x, y);
     }
-    if(abs(x-(this.node.x + this.sizeX - this.innerBuffer - this.sizeX/7))<this.sizeX/7 &&
+    if(abs(x-(this.node.x + this.sizeX - this.innerBuffer - this.sizeX/9))<this.sizeX/9 &&
     abs(y-this.node.y)< this.sizeY-this.innerBuffer){
         this.sideBar.clicked(x,y,this.node.y);
     } else {
