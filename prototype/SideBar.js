@@ -39,7 +39,7 @@ class SideBar {
         this.selected = 0;
 
         console.log("sidebar plus", y);
-        this.detailedView.popUp = new SidebarPopup("plus",this.detailedView);
+        this.detailedView.popUp = new SidebarPopup(1,this.detailedView);
       }
       if (y < middle - 40 && y >= middle - 70) {
         if (this.selected === 1) {
@@ -52,7 +52,7 @@ class SideBar {
         this.selected = 1;
 
         console.log("sidebar comment", y);
-        this.detailedView.popUp = new SidebarPopup("comment",this.detailedView);
+        this.detailedView.popUp = new SidebarPopup(2,this.detailedView);
       }
       if (y < middle + 10 && y >= middle - 40) {
         if (this.selected === 2) {
@@ -65,7 +65,7 @@ class SideBar {
         this.selected = 2;
 
         console.log("sidebar attach", y);
-        this.detailedView.popUp = new SidebarPopup("attach", this.detailedView);
+        this.detailedView.popUp = new SidebarPopup(3, this.detailedView);
       }
       if (y > middle + 70) {
         if (this.selected === 3) {
@@ -78,7 +78,7 @@ class SideBar {
         this.selected = 3;
 
         console.log("sidebar trash", y);
-        this.detailedView.popUp = new SidebarPopup("trash", this.detailedView);
+        this.detailedView.popUp = new SidebarPopup(4, this.detailedView);
       }
     }
     // xCoor, yCoor of Node, sizeX&Y of DetailView(with frame), innerBuffer: FrameWidth
@@ -108,10 +108,13 @@ class SideBar {
           }
 
           //TODO fine tune dimensions
-          rect(xCoor + sizeX - innerBuffer - sizeX/9,y,sizeX/9,sizeX/9,20);
+          rect(xCoor + sizeX - innerBuffer - sizeX/9,y,sizeX/9,sizeX/9-3,20);
         }
-
-        image(plus, xCoor+ sizeX - innerBuffer - sizeX/9,yCoor-100,40,40);
+        if (this.backgroundColor == GRAU || this.backgroundColor == GELB){
+          image(edit2, xCoor+ sizeX - innerBuffer - sizeX/9,yCoor-100,40,40);
+        }  else {
+          image(plus, xCoor+ sizeX - innerBuffer - sizeX/9,yCoor-100,40,40);
+        }
         image(comment, xCoor+ sizeX - innerBuffer - sizeX/9,yCoor-50,40,40);
         image(attach, xCoor+ sizeX - innerBuffer - sizeX/9,yCoor,40,40);
         image(trash, xCoor+ sizeX - innerBuffer - sizeX/9,yCoor+100,40,40);

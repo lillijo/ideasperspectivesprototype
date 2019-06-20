@@ -1,8 +1,9 @@
 class SidebarPopup {
   constructor(type, detailedViewParent) {
-    this.sizeX = detailedViewParent.sizeX/3;
+    this.sizeX = detailedViewParent.sizeX / 3;
     this.sizeY = detailedViewParent.sizeY;
     this.type = type;
+    this.color = detailedViewParent.node.color;
     this.detailedViewParent = detailedViewParent;
   }
 
@@ -25,15 +26,48 @@ class SidebarPopup {
   draw() {
     let centerX = this.getCenterX();
     let centerY = this.getCenterY();
+    let textX = centerX-this.sizeX+30
+    textAlign(LEFT, CENTER);
 
     // TODO implement real drawing functionality
 
-    push();
+    switch (this.type) {
+      case 1:
+        push();
+        fill(this.color);
+        rect(centerX, centerY, this.sizeX, this.sizeY, 20);
+        noStroke();
+        fill(0);
+        text("Add user group",textX, centerY-this.sizeY+30);
+        pop();
+        break;
+      case 2:
+        push();
+        fill(this.color);
+        rect(centerX, centerY, this.sizeX, this.sizeY, 20);
+        noStroke();
+        fill(0);
+        text("Comment",textX, centerY-this.sizeY+30);
+        fill(255);
+        rect(centerX, centerY+80, this.sizeX-20,10);
+        fill(0);
+        text("write...",centerX-55, centerY+80);
+        pop();
+        break;
+      case 3:
+        push();
+        fill(this.color);
+        rect(centerX, centerY, this.sizeX, this.sizeY, 20);
+        noStroke();
+        fill(0);
+        text("Attach a file or image",textX, centerY-this.sizeY+30);
+        pop();
+        break;
+      case 4:
+        //TODO delete functionality
+        break;
 
-    fill(this.detailedViewParent.node.color);
-    rect(centerX, centerY, this.sizeX, this.sizeY, 20);
-    text(this.type, centerX,centerY);
-    pop();
+    }
   }
 
   clicked(x, y) {
