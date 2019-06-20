@@ -41,41 +41,25 @@ class Content {
         pop();
 
     }
-    iconIsClicked(x,y, icon){
+    closeIconIsClicked(x,y){
         // get Icon stats
         console.log("cross checked");
-        let iconXPosition = this.parent.node.x + icon.relativeXCoor;
-        let iconYPosition = this.parent.node.y - icon.relativeYCoor;
-
-        if (iconXPosition - icon.sizeX/2 < x && x < iconXPosition + icon.sizeX/2
-            && iconYPosition - icon.sizeY/2 < y && y < iconYPosition + icon.sizeY/2 ){
+        let iconXPosition = this.parent.node.x + 285;
+        let iconYPosition = this.parent.node.y - 135;
+        // 10 is icon size in jede Richtung, d.h. ein 20x20 großes Klickfeld
+        if (iconXPosition - 10 < x && x < iconXPosition + 10
+            && iconYPosition - 10 < y && y < iconYPosition + 10){
             console.log("cross clicked");
             return true;
         }
         return false;
 
     }
-    closeIconIsClicked(x,y){
-
-        // get Coordinates and Size from node
-        let xCoor = this.parent.node.x;
-        let yCoor = this.parent.node.y;
-        let sizeX = this.parent.sizeX;
-        let sizeY = this.parent.sizeY;
-        // da wo ich das icon hin male ist nicht wo es am ende ist, d.h. wo ich klicken muss...warum?
-        if(xCoor+(sizeX-20 - this.closeIcon.sizeX/2) < x && x < xCoor+(sizeX-20) + this.closeIcon.sizeX/2
-            && yCoor - sizeY + 20 - this.closeIcon.sizeY/2 < y && y < yCoor - sizeY + 20 + this.closeIcon.sizeY/2){
-            return true;
-        }
-
-    }
 
     clicked(x, y) {
-        if (this.iconIsClicked(x,y, this.closeIcon)){
+        if (this.closeIconIsClicked(x,y)){
             this.parent.node.switchViews();
             console.log("schließe dich!!");
-            console.log(this.parent.node.state);
-
         }
     }
 
