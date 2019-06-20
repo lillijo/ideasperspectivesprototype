@@ -74,6 +74,7 @@ class Content {
         if (this.iconIsClicked(x,y, this.closeIcon)){
             this.parent.node.switchViews();
             console.log("schließe dich!!");
+            console.log(this.parent.node.state);
 
         }
     }
