@@ -25,7 +25,7 @@ class Node {
 
   attractNode(otherNode) {
     if(!otherNode.canMove) {
-      return;
+     return;
     }
 
     let thisNodeVector = createVector(this.x, this.y);
@@ -39,8 +39,8 @@ class Node {
       let f = s * 9 * this.strength * (1 / (s + 1) + ((s - 3) / 4)) / d;
       let  df = thisNodeVector.sub(otherNodeVector);
       df.mult(f);
+        otherNode.velocity.add(df);
 
-      otherNode.velocity.add(df);
     }
   }
 

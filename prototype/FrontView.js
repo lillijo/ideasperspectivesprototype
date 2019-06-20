@@ -43,7 +43,7 @@ class FrontView {
     push();
     noStroke();
     fill(WHITE);
-    rect(this.node.x, this.node.y, this.sizeX+20, this.sizeY+20, 20);
+    rect(this.node.x, this.node.y, this.sizeX+15, this.sizeY+15, 20);
     pop();
   }
 
@@ -55,11 +55,12 @@ class FrontView {
       fill(0);
       noStroke();
       textAlign(LEFT, CENTER);
+      text("Idea", this.node.x-this.sizeX+15, this.node.y - (2*this.sizeY / 3))
       textSize(20);
-      text(this.title, this.node.x-this.sizeX+15, this.node.y - (this.sizeY / 3));
+      text("Office Chairs", this.node.x-this.sizeX+15, this.node.y - 5);
       textAlign(LEFT, TOP);
       textSize(12);
-      text(this.text, this.node.x-this.sizeX+15, this.node.y );
+      text(this.text, this.node.x-this.sizeX+15, this.node.y+10 );
 
       //+ (this.sizeY / 3)
     } else {
@@ -68,7 +69,9 @@ class FrontView {
       textAlign(CENTER, CENTER);
       textSize(20);
       text(this.title, this.node.x, this.node.y);
-      image(touch, this.node.x-5, this.node.y+7,20,20);
+      tint(255, 70);
+      imageMode(CENTER);
+      image(touch, this.node.x, this.node.y+18,20,20);
     }
 
     pop();

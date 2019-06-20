@@ -17,6 +17,8 @@ class Content {
         textSize(20);
         text(this.title, xCoor-(sizeX-30), yCoor-(sizeY-30));
         if (this.title == "Target Audience"){
+          // targetAudience = new TargetAudience(xCoor,yCoor,sizeX,sizeY,innerBuffer);
+          // targetAudience.draw();
           textSize(12);
           text(this.text, xCoor-(sizeX-30), yCoor-(sizeY-60),370);
           push();
@@ -32,7 +34,6 @@ class Content {
           text("adult", xCoor-(sizeX-50), yCoor-(sizeY-100));
           text("office-worker", xCoor-(sizeX-140), yCoor-(sizeY-100));
           //text("adults", xCoor-(sizeX-50), yCoor-(sizeY-100));
-          image(trash, xCoor-(sizeX-30),yCoor+70,40,40);
           pop();
         }
         imageMode(CENTER);
@@ -75,17 +76,11 @@ class Content {
             console.log("schließe dich!!");
 
         }
-      if (console.log("detailView is clicked"));
-
-      console.log("clicked");
     }
 
-    dragged(x, y) {
-      console.log("detailView is dragged, you can use drag and drop to put user group in trash");
-    }
 
     pressed(x,y) {
-      console.log("pressed");
+      //console.log("pressed");
     }
 
 }

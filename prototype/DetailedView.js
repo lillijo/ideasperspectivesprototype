@@ -34,7 +34,11 @@ class DetailedView {
       abs(y - this.node.y) > this.sizeY - this.innerBuffer)  {
       console.log("clicked on frame");
       this.content.clicked(x,y);
-    } else {
+    }
+    if(abs(x-(this.node.x + this.sizeX - this.innerBuffer - this.sizeX/7))<this.sizeX/7 &&
+    abs(y-this.node.y)< this.sizeY-this.innerBuffer){
+        this.sideBar.clicked(x,y,this.node.y);
+    }else {
       this.content.clicked(x,y);
     }
   }
