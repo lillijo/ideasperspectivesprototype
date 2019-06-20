@@ -214,6 +214,10 @@ function mouseReleased() {
 }
 
 function getNodeUnderMouse() {
+  if(selectedNode != null && selectedNode.inBounds(mouseX,mouseY)) {
+    return selectedNode;
+  }
+
   for (let i = 0; i < nodes.length; i++) {
     if (nodes[i].inBounds(mouseX, mouseY)) {
 
