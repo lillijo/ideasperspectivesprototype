@@ -37,7 +37,8 @@ class Content {
           pop();
         }
         imageMode(CENTER);
-        this.closeIcon.draw(xCoor + 285, (yCoor - 135));
+        tint(255,70);
+        image(cross, xCoor+ sizeX-15, yCoor-sizeY+15,20,20);
         pop();
 
     }
