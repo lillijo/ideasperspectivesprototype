@@ -43,7 +43,7 @@ class FrontView {
     push();
     noStroke();
     fill(WHITE);
-    rect(this.node.x, this.node.y, this.sizeX+20, this.sizeY+20, 20);
+    rect(this.node.x, this.node.y, this.sizeX+15, this.sizeY+15, 20);
     pop();
   }
 
