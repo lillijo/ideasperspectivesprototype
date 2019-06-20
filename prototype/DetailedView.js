@@ -7,6 +7,8 @@ class DetailedView {
     // Groeße des aeußeren Rahmens zum Bewegen des Kaertchens
     this.innerBuffer = 20;
     this.isHeld = false;
+
+    this.popUp = null;
   }
 
   setElementDependencies(node) {
@@ -17,17 +19,14 @@ class DetailedView {
 
 
   inBounds(x, y) {
-    if (abs(x - this.node.x) < this.sizeX &&
-      abs(y - this.node.y) < this.sizeY) {
-
-      return true;
-
-    } else {
-      return false;
-    }
+    return (abs(x - this.node.x) < this.sizeX && abs(y - this.node.y) < this.sizeY) ||
+      (this.popUp != null && this.popUp.inBounds(x, y));
   }
 
   clicked(x, y) {
+    if (this.popUp != null && this.popUp.inBounds(x, y)) {
+      this.popUp.clicked(x, y);
+    }
     if(abs(x-(this.node.x + this.sizeX - this.innerBuffer - this.sizeX/7))<this.sizeX/7 &&
     abs(y-this.node.y)< this.sizeY-this.innerBuffer){
         this.sideBar.clicked(x,y,this.node.y);
@@ -37,10 +36,18 @@ class DetailedView {
   }
 
   doubleClicked(x, y) {
+    if (this.popUp != null && this.popUp.inBounds(x, y)) {
+      this.popUp.doubleClicked(x, y);
+    }
+
     this.node.switchViews();
   }
 
   pressed(x, y) {
+    if (this.popUp != null && this.popUp.inBounds(x, y)) {
+      this.popUp.pressed(x, y);
+    }
+
     if (abs(x - this.node.x) < this.sizeX &&
       abs(y - this.node.y) < this.sizeY &&
       abs(x - this.node.x) > this.sizeX - this.innerBuffer ||
@@ -57,6 +64,10 @@ class DetailedView {
   }
 
   released(x, y) {
+    if (this.popUp != null && this.popUp.inBounds(x, y)) {
+      this.popUp.released(x, y);
+    }
+
     this.isHeld = false;
   }
 
@@ -78,6 +89,11 @@ class DetailedView {
 
     // Seitenleiste zeichnen
     this.sideBar.draw(this.node.x, this.node.y, this.sizeX, this.sizeY, this.innerBuffer);
+
+    if(this.popUp != null) {
+      this.popUp.draw();
+    }
+
     pop();
   }
 }
