@@ -89,6 +89,28 @@ class SideBar {
         // = Sidebar liegt an der rechten Seite am Rahmen an
         rect(xCoor + sizeX - innerBuffer - sizeX/9, yCoor, sizeX/9, sizeY - innerBuffer, 20);
         imageMode(CENTER);
+        if (this.selected!==-1){
+          let y;
+
+          switch(this.selected){
+            case 0:
+              y=yCoor-100;
+              break;
+            case 1:
+              y=yCoor-50;
+              break;
+            case 2:
+              y=yCoor;
+              break;
+            case 3:
+              y=yCoor+100;
+              break;
+          }
+
+          //TODO fine tune dimensions
+          rect(xCoor + sizeX - innerBuffer - sizeX/9,y,sizeX/9,sizeX/9,20);
+        }
+
         image(plus, xCoor+ sizeX - innerBuffer - sizeX/9,yCoor-100,40,40);
         image(comment, xCoor+ sizeX - innerBuffer - sizeX/9,yCoor-50,40,40);
         image(attach, xCoor+ sizeX - innerBuffer - sizeX/9,yCoor,40,40);
