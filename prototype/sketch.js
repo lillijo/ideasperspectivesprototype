@@ -126,7 +126,6 @@ function draw() {
   background(255); // Set the background to white
 
   infoBar.draw();
-  overview.draw();
 
   for (let i = 0; i < nodes.length; i++) {
     for (let j = 0; j < nodes.length; j++) {
@@ -163,6 +162,8 @@ function draw() {
   if (selectedNode != null) {
     selectedNode.draw();
   }
+
+  overview.draw();
 }
 
 function drawSpacers(){
