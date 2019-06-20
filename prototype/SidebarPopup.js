@@ -1,7 +1,8 @@
 class SidebarPopup {
-  constructor(sizeX, sizeY, detailedViewParent) {
-    this.sizeX = sizeX;
-    this.sizeY = sizeY;
+  constructor(type, detailedViewParent) {
+    this.sizeX = detailedViewParent.sizeX/3;
+    this.sizeY = detailedViewParent.sizeY;
+    this.type = type;
     this.detailedViewParent = detailedViewParent;
   }
 
@@ -29,9 +30,9 @@ class SidebarPopup {
 
     push();
 
-    fill(color(255, 0, 0));
+    fill(this.detailedViewParent.node.color);
     rect(centerX, centerY, this.sizeX, this.sizeY, 20);
-
+    text(this.type, centerX,centerY);
     pop();
   }
 

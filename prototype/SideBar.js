@@ -39,7 +39,7 @@ class SideBar {
         this.selected = 0;
 
         console.log("sidebar plus", y);
-        this.detailedView.popUp = new SidebarPopup(50, 10, this.detailedView);
+        this.detailedView.popUp = new SidebarPopup("plus",this.detailedView);
       }
       if (y < middle - 40 && y >= middle - 70) {
         if (this.selected === 1) {
@@ -52,7 +52,7 @@ class SideBar {
         this.selected = 1;
 
         console.log("sidebar comment", y);
-        this.detailedView.popUp = new SidebarPopup(50, 20, this.detailedView);
+        this.detailedView.popUp = new SidebarPopup("comment",this.detailedView);
       }
       if (y < middle + 10 && y >= middle - 40) {
         if (this.selected === 2) {
@@ -65,7 +65,7 @@ class SideBar {
         this.selected = 2;
 
         console.log("sidebar attach", y);
-        this.detailedView.popUp = new SidebarPopup(50, 30, this.detailedView);
+        this.detailedView.popUp = new SidebarPopup("attach", this.detailedView);
       }
       if (y > middle + 70) {
         if (this.selected === 3) {
@@ -78,7 +78,7 @@ class SideBar {
         this.selected = 3;
 
         console.log("sidebar trash", y);
-        this.detailedView.popUp = new SidebarPopup(50, 40, this.detailedView);
+        this.detailedView.popUp = new SidebarPopup("trash", this.detailedView);
       }
     }
     // xCoor, yCoor of Node, sizeX&Y of DetailView(with frame), innerBuffer: FrameWidth
