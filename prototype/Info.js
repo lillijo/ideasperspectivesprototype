@@ -22,6 +22,10 @@ class Info {
         push();
         tint(255, 70);
         imageMode(CENTER);
+        stroke(GRAU);
+        strokeWeight(2);
+        noFill();
+        ellipse(this.x,this.y, 50,50);
         fill(0);
         noStroke();
         image(info, this.x, this.y, 50,50);
