@@ -92,7 +92,13 @@ function setupNodes() {
 
   thirdFrontView = new FrontView("Description", "", 90, 30);
   thirdSideBar = new SideBar(GELB);
-  thirdContent = new Content("Description", "third very good text, and it works!", closeIcon);
+  thirdContent = new Content("Description", "The TCO sends data to a local interface about your sitting posture and statistics.\n" +
+    "A special app interprets the data and gives you health advices.\n" +
+    " - measures the time you spent sitting in different postures\n" +
+    " - part of you body which is strained most\n" +
+    " - optimal sitting height and angles\n" +
+    " - warns automatically if you leave an optimal posture for more then 3 Minutes (adjustable)\n" +
+    " - gives you tipps how to improve your posture", closeIcon);
   thirdDetailedView = new DetailedView(thirdContent, thirdSideBar, 300, 150);
 
   nodes.push(new Node(1500, 500, GELB, WHITE, thirdFrontView, thirdDetailedView));
@@ -106,7 +112,9 @@ function setupNodes() {
 
   contextFrontView = new FrontView("Context", "", 90, 30);
   contextSideBar = new SideBar(GRAU);
-  contextContent = new Content("Context", "third very good text, and it works!", closeIcon);
+  contextContent = new Content("Context", "TCO - Transparent Conductive Oxides\n" +
+    "\n" +
+    "Transparent Conductive Oxides (TCO) are materials that can be used as thin coatings to make surfaces and objects intelligent. They are transparent, conductive and flexible.", closeIcon);
   contextDetailedView = new DetailedView(contextContent, contextSideBar, 300, 150);
 
   nodes.push(new Node(1000, 100, GRAU, WHITE, contextFrontView, contextDetailedView));
