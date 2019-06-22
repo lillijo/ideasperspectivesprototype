@@ -1,9 +1,7 @@
 class Content {
-  constructor(title, text, closeIcon) {
+  constructor(title, text) {
     this.title = title;
     this.text = text;
-    this.closeIcon = closeIcon;
-
   }
   setDetailedView(detailedView){
     this.parent = detailedView;
@@ -50,6 +48,9 @@ class Content {
       text("office", xCoor-(sizeX-50), yCoor-(sizeY-100));
       text("gaming", xCoor-(sizeX-140), yCoor-(sizeY-100));
       pop();
+    } else if (this.title == "Description") {
+      imageMode(CENTER);
+      image(sittingPosture, xCoor+ sizeX/2 - 30, yCoor, 180,180);
     }
     // Text unter dem Titel anzeigen: @param: text, posX, posY, sizeX, sizeY
     push();
