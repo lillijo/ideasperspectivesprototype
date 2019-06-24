@@ -117,9 +117,11 @@ class SidebarPopup {
     text("Comment", textX, centerY - this.sizeY + 30);
     fill(WHITE);
     if (this.button == "writing") {
-      rect(centerX, centerY + 80, this.sizeX - 20, 40);
+      rect(centerX, centerY + 70, this.sizeX - 20, 30);
       fill(0);
       text("here would be typing functionality...", textX, centerY + 30, this.sizeX, 80);
+
+      text("submit", textX+50, centerY + 80, this.sizeX, 80);
     } else {
       rect(centerX, centerY + 80, this.sizeX - 20, 10);
       fill(0);

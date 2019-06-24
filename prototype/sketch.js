@@ -12,6 +12,7 @@ let WHITE = [255,255,255];
 let BLACK = [0,0,0];
 let description = "cover chairs with transparent\nconductive foil to monitor\nand improve sitting posture";
 //font type
+let ratingContent = "Ratings: 11\nAverage rating out of 5 points split up:\n\nValue                          3.4\nNovelty                      2.7\nFeasability                  4.7\nElaboration                4.5 \n\nSummed up value:   3.8";
 let myFont;
 let infoBar;
 
@@ -70,8 +71,8 @@ function setup() {
 function setupNodes() {
   centralNode = new Node(width/2, height/2, WHITE, BLACK, new FrontView("Idea", description, 100, 80), null);
   centralNode.canMove = false;
-
   nodes.push(centralNode);
+
 
   // set up other nodes
   firstFrontView = new FrontView("Target Audience", "", 90, 30);
@@ -84,7 +85,7 @@ function setupNodes() {
 
   secondFrontView = new FrontView("Rating", "", 90, 30);
   secondSideBar = new SideBar(LILA);
-  secondContent = new Content("Rating", "This is a very long an meaningful content. Enjoy it!");
+  secondContent = new Content("Rating", ratingContent);
   secondDetailedView = new DetailedView(secondContent, secondSideBar, 300, 150);
 
   nodes.push(new Node(600, 300, LILA,WHITE, secondFrontView, secondDetailedView));
