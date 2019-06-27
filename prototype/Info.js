@@ -10,10 +10,8 @@ class Info {
     }
 
     inBounds(x, y) {
-      if (abs(x - this.x) < this.sizeX && this.state == 0) {
-        this.state = 1;
-      } else {
-        this.state = 0;
+      if (abs(x - this.x) < this.sizeX) {
+        this.state = (this.state + 1) % 2;
       }
     }
     // xCoor, yCoor of Node, sizeX&Y of DetailView(with frame), innerBuffer: FrameWidth
