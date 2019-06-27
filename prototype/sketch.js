@@ -199,7 +199,7 @@ function doubleClicked() {
   if (nodeUnderMouse != null) {
     selectedNode = nodeUnderMouse;
 
-    nodeUnderMouse.doubleClicked();
+    nodeUnderMouse.doubleClicked(mouseX, mouseY);
   }
 
 }
