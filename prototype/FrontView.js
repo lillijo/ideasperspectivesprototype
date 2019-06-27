@@ -21,14 +21,21 @@ class FrontView {
   }
 
   clicked(x, y) {
+    if (this.init_held_y === y &&
+      this.init_held_x === x) {
 
+      this.node.switchViews();
+    }
   }
 
   doubleClicked(x, y) {
-    this.node.switchViews();
+    // NOP
   }
 
   pressed(x, y) {
+    this.init_held_x = x;
+    this.init_held_y = y;
+
     this.isHeld = true;
 
     this.offsetX = mouseX - this.node.x;
