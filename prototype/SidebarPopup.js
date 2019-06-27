@@ -81,13 +81,26 @@ class SidebarPopup {
       if (this.type == 2){
         this.drawComment(centerX,centerY,textX, 3)
       }
+
+      if (this.type === 3) {
+        push();
+        fill(this.color);
+        rect(centerX, centerY, this.sizeX, this.sizeY, 20);
+        pop();
+      }
     }
 
     else {
-      fill(this.color);
-      rect(centerX, centerY, this.sizeX, this.sizeY, 20);
-      if (this.type == 2){
-        this.drawComment(centerX,centerY,textX, 3)
+      if (this.type == 2) {
+        this.drawComment(centerX, centerY, textX, 3)
+      } else if(this.type === 4) {
+        // Don't show rectangle for deletion
+      } else {
+        push();
+        fill(this.color);
+        rect(centerX, centerY, this.sizeX, this.sizeY, 20);
+        pop();
+
       }
     }
   }
