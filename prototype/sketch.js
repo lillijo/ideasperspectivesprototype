@@ -3,13 +3,13 @@ let nodes = [];
 let springs = [];
 let selectedNode;
 let heldNode;
-let ROT = [251,128,114];
-let GRUEN = [141,211,199];
-let LILA = [190,186,218];
-let GELB = [255,255,179];
-let GRAU = [220,220,220];
-let WHITE = [255,255,255];
-let BLACK = [0,0,0];
+let ROT = [251, 128, 114];
+let GRUEN = [141, 211, 199];
+let LILA = [190, 186, 218];
+let GELB = [255, 255, 179];
+let GRAU = [220, 220, 220];
+let WHITE = [255, 255, 255];
+let BLACK = [0, 0, 0];
 let description = "cover chairs with transparent\nconductive foil to monitor\nand improve sitting posture";
 //font type
 let ratingContent = "Ratings: 11\nAverage rating out of 5 points split up:\n\nValue                          3.4\nNovelty                      2.7\nFeasability                  4.7\nElaboration                4.5 \n\nSummed up value:   3.8";
@@ -57,9 +57,9 @@ function setup() {
 
   rectMode(RADIUS);
 
-  infoBar = new Info(1750,50);
+  infoBar = new Info(1750, 50);
   //infoBar.inBounds(mouseX,mouseY);
-  overview = new Overview(50,50);
+  overview = new Overview(50, 50);
 
 
   setupNodes();
@@ -69,7 +69,7 @@ function setup() {
 }
 
 function setupNodes() {
-  centralNode = new Node(width/2, height/2, WHITE, BLACK, new FrontView("Idea", description, 100, 80), null);
+  centralNode = new Node(width / 2, height / 2, WHITE, BLACK, new FrontView("Idea", description, 100, 80), null);
   centralNode.canMove = false;
   nodes.push(centralNode);
 
@@ -88,7 +88,7 @@ function setupNodes() {
   secondContent = new Content("Rating", ratingContent);
   secondDetailedView = new DetailedView(secondContent, secondSideBar, 300, 150);
 
-  nodes.push(new Node(600, 300, LILA,WHITE, secondFrontView, secondDetailedView));
+  nodes.push(new Node(600, 300, LILA, WHITE, secondFrontView, secondDetailedView));
 
 
   thirdFrontView = new FrontView("Description", "", 90, 30);
@@ -138,7 +138,7 @@ function draw() {
 
   for (let i = 0; i < nodes.length; i++) {
     for (let j = 0; j < nodes.length; j++) {
-      if (i===j) {
+      if (i === j) {
         continue;
       }
 
@@ -175,7 +175,7 @@ function draw() {
   overview.draw();
 }
 
-function drawSpacers(){
+function drawSpacers() {
   for (let i = 0; i < nodes.length; i++) {
     nodes[i].drawSpacer();
   }
@@ -189,8 +189,8 @@ function mouseClicked() {
 
     nodeUnderMouse.clicked(mouseX, mouseY);
   }
-  infoBar.inBounds(mouseX,mouseY);
-  overview.inBounds(mouseX,mouseY);
+  infoBar.inBounds(mouseX, mouseY);
+  overview.inBounds(mouseX, mouseY);
 }
 
 function doubleClicked() {
@@ -223,7 +223,7 @@ function mouseReleased() {
 }
 
 function getNodeUnderMouse() {
-  if(selectedNode != null && selectedNode.inBounds(mouseX,mouseY)) {
+  if (selectedNode != null && selectedNode.inBounds(mouseX, mouseY)) {
     return selectedNode;
   }
 
@@ -236,25 +236,26 @@ function getNodeUnderMouse() {
 }
 
 
-
-
 function linedash(x1, y1, x2, y2, delta, style = '-') {
   // delta is both the length of a dash, the distance between 2 dots/dashes, and the diameter of a round
-  let distance = dist(x1,y1,x2,y2);
-  let dashNumber = distance/delta;
-  let xDelta = (x2-x1)/dashNumber;
-  let yDelta = (y2-y1)/dashNumber;
+  let distance = dist(x1, y1, x2, y2);
+  let dashNumber = distance / delta;
+  let xDelta = (x2 - x1) / dashNumber;
+  let yDelta = (y2 - y1) / dashNumber;
 
-  for (let i = 0; i < dashNumber; i+= 2) {
-    let xi1 = i*xDelta + x1;
-    let yi1 = i*yDelta + y1;
-    let xi2 = (i+1)*xDelta + x1;
-    let yi2 = (i+1)*yDelta + y1;
+  for (let i = 0; i < dashNumber; i += 2) {
+    let xi1 = i * xDelta + x1;
+    let yi1 = i * yDelta + y1;
+    let xi2 = (i + 1) * xDelta + x1;
+    let yi2 = (i + 1) * yDelta + y1;
 
     if (style == '-') {
       fill(0);
-      line(xi1, yi1, xi2, yi2); }
-    else if (style == '.') { point(xi1, yi1); }
-    else if (style == 'o') { ellipse(xi1, yi1, delta/2); }
+      line(xi1, yi1, xi2, yi2);
+    } else if (style == '.') {
+      point(xi1, yi1);
+    } else if (style == 'o') {
+      ellipse(xi1, yi1, delta / 2);
+    }
   }
 }

@@ -24,8 +24,8 @@ class Node {
   }
 
   attractNode(otherNode) {
-    if(!otherNode.canMove) {
-     return;
+    if (!otherNode.canMove) {
+      return;
     }
 
     let thisNodeVector = createVector(this.x, this.y);
@@ -37,16 +37,16 @@ class Node {
     if (d > 0 && d < radius) {
       let s = pow(d / radius, 1 / this.ramp);
       let f = s * 9 * this.strength * (1 / (s + 1) + ((s - 3) / 4)) / d;
-      let  df = thisNodeVector.sub(otherNodeVector);
+      let df = thisNodeVector.sub(otherNodeVector);
       df.mult(f);
-        otherNode.velocity.add(df);
+      otherNode.velocity.add(df);
 
     }
   }
 
 
   applyVelocity() {
-    if(!this.canMove) {
+    if (!this.canMove) {
       return;
     }
 
@@ -59,7 +59,7 @@ class Node {
   }
 
   setPositionIfHeld() {
-    if(!this.canMove) {
+    if (!this.canMove) {
       return;
     }
 
@@ -72,16 +72,13 @@ class Node {
   limitPosition() {
     if (this.x - this.selectedView.sizeX < 0) {
       this.x = this.selectedView.sizeX;
-    }
-    else if (this.x + this.selectedView.sizeX > width) {
+    } else if (this.x + this.selectedView.sizeX > width) {
       this.x = width - this.selectedView.sizeX;
     }
 
     if (this.y - this.selectedView.sizeY < 0) {
       this.y = this.selectedView.sizeY;
-    }
-
-    else if (this.y + this.selectedView.sizeY > height) {
+    } else if (this.y + this.selectedView.sizeY > height) {
       this.y = height - this.selectedView.sizeY;
     }
   }

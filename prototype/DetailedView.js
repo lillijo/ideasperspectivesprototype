@@ -1,7 +1,7 @@
 class DetailedView {
   constructor(content, sideBar, sizeX, sizeY) {
     this.content = content;
-    this.sideBar=sideBar;
+    this.sideBar = sideBar;
     this.sizeX = sizeX;
     this.sizeY = sizeY;
     // Groeße des aeußeren Rahmens zum Bewegen des Kaertchens
@@ -27,11 +27,11 @@ class DetailedView {
     if (this.popUp != null && this.popUp.inBounds(x, y)) {
       this.popUp.clicked(x, y);
     }
-    if(abs(x-(this.node.x + this.sizeX - this.innerBuffer - this.sizeX/9))<this.sizeX/9 &&
-    abs(y-this.node.y)< this.sizeY-this.innerBuffer){
-        this.sideBar.clicked(x,y,this.node.y);
+    if (abs(x - (this.node.x + this.sizeX - this.innerBuffer - this.sizeX / 9)) < this.sizeX / 9 &&
+      abs(y - this.node.y) < this.sizeY - this.innerBuffer) {
+      this.sideBar.clicked(x, y, this.node.y);
     } else {
-      this.content.clicked(x,y);
+      this.content.clicked(x, y);
     }
   }
 
@@ -58,7 +58,7 @@ class DetailedView {
       this.offsetY = mouseY - this.node.y;
 
     } else {
-      this.content.pressed(x,y);
+      this.content.pressed(x, y);
     }
   }
 
@@ -96,7 +96,7 @@ class DetailedView {
     // Seitenleiste zeichnen
     this.sideBar.draw(this.node.x, this.node.y, this.sizeX, this.sizeY, this.innerBuffer);
 
-    if(this.popUp != null) {
+    if (this.popUp != null) {
       this.popUp.draw();
     }
 

@@ -50,7 +50,7 @@ class FrontView {
     push();
     noStroke();
     fill(WHITE);
-    rect(this.node.x, this.node.y, this.sizeX+15, this.sizeY+15, 20);
+    rect(this.node.x, this.node.y, this.sizeX + 15, this.sizeY + 15, 20);
     pop();
   }
 
@@ -58,16 +58,16 @@ class FrontView {
     fill(this.node.color);
     rect(this.node.x, this.node.y, this.sizeX, this.sizeY, 20);
     push();
-    if (this.text != ""){
+    if (this.text != "") {
       fill(0);
       noStroke();
       textAlign(LEFT, CENTER);
-      text("Idea", this.node.x-this.sizeX+15, this.node.y - (2*this.sizeY / 3))
+      text("Idea", this.node.x - this.sizeX + 15, this.node.y - (2 * this.sizeY / 3));
       textSize(20);
-      text("Office Chairs", this.node.x-this.sizeX+15, this.node.y - 5);
+      text("Office Chairs", this.node.x - this.sizeX + 15, this.node.y - 5);
       textAlign(LEFT, TOP);
       textSize(12);
-      text(this.text, this.node.x-this.sizeX+15, this.node.y+10 );
+      text(this.text, this.node.x - this.sizeX + 15, this.node.y + 10);
 
       //+ (this.sizeY / 3)
     } else {
@@ -78,7 +78,7 @@ class FrontView {
       text(this.title, this.node.x, this.node.y);
       tint(255, 70);
       imageMode(CENTER);
-      image(touch, this.node.x, this.node.y+18,20,20);
+      image(touch, this.node.x, this.node.y + 18, 20, 20);
     }
 
     pop();

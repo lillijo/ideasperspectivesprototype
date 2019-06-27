@@ -3,14 +3,14 @@ let nodes = [];
 let springs = [];
 let selectedNode;
 let heldNode;
-let ROT = [251,128,114];
-let GRUEN = [141,211,199];
-let LILA = [190,186,218];
-let GELB = [255,255,179];
-let GRAU = [220,220,220];
-let WHITE = [255,255,255];
-let BLACK = [0,0,0];
-let cdesc = "Transparent Conductive Oxides \nTCO \nare thin, transparent, flexible \nfoils that are conductive. \nThey can be used for \nelectriv circuits."
+let ROT = [251, 128, 114];
+let GRUEN = [141, 211, 199];
+let LILA = [190, 186, 218];
+let GELB = [255, 255, 179];
+let GRAU = [220, 220, 220];
+let WHITE = [255, 255, 255];
+let BLACK = [0, 0, 0];
+let cdesc = "Transparent Conductive Oxides \nTCO \nare thin, transparent, flexible \nfoils that are conductive. \nThey can be used for \nelectriv circuits.";
 let description = "Cover chairs with transparent\nconductive foil to monitor\nand improve sitting posture";
 let tablet = "the whole table could \nbe covered with TCO \nthat powers LEDs to enable \nplayful interactions";
 let nightads = "Cover beautiful fassades \nwith transparent foil \nthat displays ads \nonly at night";
@@ -59,7 +59,7 @@ function setupNodes() {
   nodes.push(centralNode);
 
   // set up other nodes
-  closeIcon = new Icon(20,20,cross);
+  closeIcon = new Icon(20, 20, cross);
 
   firstFrontView = new FrontView("Office Chairs", description, 100, 100);
   firstSideBar = new SideBar(ROT);
@@ -69,12 +69,12 @@ function setupNodes() {
   nodes.push(new Node(100, 700, ROT, WHITE, firstFrontView, firstDetailedView));
 
 
-  secondFrontView = new FrontView("Table Tennis",tablet, 100, 100);
+  secondFrontView = new FrontView("Table Tennis", tablet, 100, 100);
   secondSideBar = new SideBar(LILA);
   secondContent = new Content("Rating", "This is a very long an meaningful content. Enjoy it!", closeIcon);
   secondDetailedView = new DetailedView(secondContent, secondSideBar, 300, 150);
 
-  nodes.push(new Node(600, 300, LILA,WHITE, secondFrontView, secondDetailedView));
+  nodes.push(new Node(600, 300, LILA, WHITE, secondFrontView, secondDetailedView));
 
 
   thirdFrontView = new FrontView("Night Ads", nightads, 100, 100);
@@ -101,7 +101,7 @@ function draw() {
 
   for (let i = 0; i < nodes.length; i++) {
     for (let j = 0; j < nodes.length; j++) {
-      if (i===j) {
+      if (i === j) {
         continue;
       }
 
@@ -136,7 +136,7 @@ function draw() {
   }
 }
 
-function drawSpacers(){
+function drawSpacers() {
   for (let i = 0; i < nodes.length; i++) {
     nodes[i].drawSpacer();
   }
@@ -201,21 +201,24 @@ function getNodeUnderMouse() {
 
 function linedash(x1, y1, x2, y2, delta, style = '-') {
   // delta is both the length of a dash, the distance between 2 dots/dashes, and the diameter of a round
-  let distance = dist(x1,y1,x2,y2);
-  let dashNumber = distance/delta;
-  let xDelta = (x2-x1)/dashNumber;
-  let yDelta = (y2-y1)/dashNumber;
+  let distance = dist(x1, y1, x2, y2);
+  let dashNumber = distance / delta;
+  let xDelta = (x2 - x1) / dashNumber;
+  let yDelta = (y2 - y1) / dashNumber;
 
-  for (let i = 0; i < dashNumber; i+= 2) {
-    let xi1 = i*xDelta + x1;
-    let yi1 = i*yDelta + y1;
-    let xi2 = (i+1)*xDelta + x1;
-    let yi2 = (i+1)*yDelta + y1;
+  for (let i = 0; i < dashNumber; i += 2) {
+    let xi1 = i * xDelta + x1;
+    let yi1 = i * yDelta + y1;
+    let xi2 = (i + 1) * xDelta + x1;
+    let yi2 = (i + 1) * yDelta + y1;
 
     if (style == '-') {
       fill(0);
-      line(xi1, yi1, xi2, yi2); }
-    else if (style == '.') { point(xi1, yi1); }
-    else if (style == 'o') { ellipse(xi1, yi1, delta/2); }
+      line(xi1, yi1, xi2, yi2);
+    } else if (style == '.') {
+      point(xi1, yi1);
+    } else if (style == 'o') {
+      ellipse(xi1, yi1, delta / 2);
+    }
   }
 }
