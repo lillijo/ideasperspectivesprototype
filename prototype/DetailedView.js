@@ -40,7 +40,9 @@ class DetailedView {
       this.popUp.doubleClicked(x, y);
     }
 
-    this.node.switchViews();
+    if (this.inSidebar(x, y)) {
+      this.node.switchViews();
+    }
   }
 
   pressed(x, y) {
@@ -48,10 +50,7 @@ class DetailedView {
       this.popUp.pressed(x, y);
     }
 
-    if (abs(x - this.node.x) < this.sizeX &&
-      abs(y - this.node.y) < this.sizeY &&
-      abs(x - this.node.x) > this.sizeX - this.innerBuffer ||
-      abs(y - this.node.y) > this.sizeY - this.innerBuffer) {
+    if (this.inSidebar(x, y)) {
 
       this.isHeld = true;
 
@@ -61,6 +60,13 @@ class DetailedView {
     } else {
       this.content.pressed(x,y);
     }
+  }
+
+  inSidebar(x, y) {
+    return abs(x - this.node.x) < this.sizeX &&
+      abs(y - this.node.y) < this.sizeY &&
+      abs(x - this.node.x) > this.sizeX - this.innerBuffer ||
+      abs(y - this.node.y) > this.sizeY - this.innerBuffer;
   }
 
   released(x, y) {
