@@ -6,7 +6,7 @@ class Info {
         this.sizeY = 40;
         this.color = GRAU;
         this.lineColor = BLACK;
-        this.state = 0;
+        this.state = 1;
     }
 
     inBounds(x, y) {
