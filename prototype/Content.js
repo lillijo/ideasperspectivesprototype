@@ -133,14 +133,14 @@ class Content {
         // alle CloseIcons sind auf der gleichen Höhe
         if (this.parent.node.y - this.parent.sizeY + 95 < y && y < this.parent.node.y - this.parent.sizeY + 115) {
           // alle Werte kommen aus this.draw() bei title == target audience
-          if (this.parent.node.x - this.parent.sizeX + 22 < x && x < this.parent.node.x - this.parent.sizeX + 42) {
+          if (this.parent.node.x - this.parent.sizeX + 32 < x && x < this.parent.node.x - this.parent.sizeX + 52) {
             this.adultShow = false;
             console.log("adult close");
           }
-          if (this.parent.node.x - this.parent.sizeX + 112 < x && x < this.parent.node.x - this.parent.sizeX + 132) {
+          if (this.parent.node.x - this.parent.sizeX + 122 < x && x < this.parent.node.x - this.parent.sizeX + 142) {
             this.officeWorkerShow = false;
           }
-          if (this.parent.node.x - 78 < x && x < this.parent.node.x - 58) {
+          if (this.parent.node.x - 68 < x && x < this.parent.node.x - 48) {
             this.selfOptimizerShow = false;
           }
         }
@@ -148,10 +148,10 @@ class Content {
       if (this.title == "Categories") {
         if (this.parent.node.y - this.parent.sizeY + 90 < y && y < this.parent.node.y - this.parent.sizeY + 110) {
           // alle Werte kommen aus this.draw() bei title == Categories
-          if (this.parent.node.x - this.parent.sizeX + 22 < x && x < this.parent.node.x - this.parent.sizeX + 42) {
+          if (this.parent.node.x - this.parent.sizeX + 32 < x && x < this.parent.node.x - this.parent.sizeX + 52) {
             this.officeCategoryShow = false;
           }
-          if (this.parent.node.x - this.parent.sizeX + 112 < x && x < this.parent.node.x - this.parent.sizeX + 132) {
+          if (this.parent.node.x - this.parent.sizeX + 122 < x && x < this.parent.node.x - this.parent.sizeX + 142) {
             this.gamerShow = false;
           }
         }
