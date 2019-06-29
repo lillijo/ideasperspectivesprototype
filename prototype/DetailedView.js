@@ -7,6 +7,8 @@ class DetailedView {
     // Groeße des aeußeren Rahmens zum Bewegen des Kaertchens
     this.innerBuffer = 20;
     this.isHeld = false;
+    // 0 default, 1 for deletion with trashcan; Set with Sidebar.clicked
+    this.trashBinState = 0;
 
     this.popUp = null;
   }
@@ -91,7 +93,7 @@ class DetailedView {
     rect(this.node.x, this.node.y, this.sizeX - this.innerBuffer, this.sizeY - this.innerBuffer, 20);
     push();
     // Content
-    this.content.draw(this.node.x, this.node.y, this.sizeX, this.sizeY, this.innerBuffer);
+    this.content.draw(this.node.x, this.node.y, this.sizeX, this.sizeY, this.innerBuffer, this.trashBinState);
 
     // Seitenleiste zeichnen
     this.sideBar.draw(this.node.x, this.node.y, this.sizeX, this.sizeY, this.innerBuffer);

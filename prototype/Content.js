@@ -2,13 +2,14 @@ class Content {
   constructor(title, text) {
     this.title = title;
     this.text = text;
+
   }
 
   setDetailedView(detailedView) {
     this.parent = detailedView;
   }
 
-  draw(xCoor, yCoor, sizeX, sizeY, innerBuffer) {
+  draw(xCoor, yCoor, sizeX, sizeY, innerBuffer, trashBinState) {
     push();
     fill(0);
     noStroke();
@@ -34,7 +35,14 @@ class Content {
       text("adult", xCoor - (sizeX - 50), yCoor - (sizeY - 110));
       text("office-worker", xCoor - (sizeX - 140), yCoor - (sizeY - 110));
       text("self-optimizer", xCoor - 50, yCoor - (sizeY - 110));
-      //text("adults", xCoor-(sizeX-50), yCoor-(sizeY-100));
+      if (trashBinState == 1){
+        // adult
+        image(cross, xCoor - sizeX + 32, yCoor - sizeY + 105,20,20);
+        // office worker
+        image(cross, xCoor - sizeX + 122, yCoor - sizeY + 105,20,20);
+        // self optimizer
+        image(cross, xCoor - 68, yCoor - sizeY + 105,20,20);
+      }
       pop();
     } else if (this.title == "Categories") {
       push();
@@ -47,8 +55,14 @@ class Content {
       // rect(xCoor-(sizeX-210), yCoor-(sizeY-90),80,30, 20);
       // rect(xCoor-(sizeX-300), yCoor-(sizeY-90),80,30, 20);
       fill(0);
-      text("office", xCoor - (sizeX - 50), yCoor - (sizeY - 100));
-      text("gaming", xCoor - (sizeX - 140), yCoor - (sizeY - 100));
+      text("office", xCoor - sizeX + 50, yCoor - sizeY + 100);
+      text("gaming", xCoor - sizeX + 140, yCoor - sizeY + 100);
+      if (trashBinState == 1) {
+        // office
+        image(cross, xCoor - sizeX + 32, yCoor - sizeY + 95, 20, 20);
+        // gaming
+        image(cross, xCoor - sizeX + 122, yCoor - sizeY + 95, 20, 20);
+      }
       pop();
     } else if (this.title == "Description") {
       imageMode(CENTER);

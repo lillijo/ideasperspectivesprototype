@@ -77,13 +77,14 @@ class SideBar {
       if (this.selected === 3) {
         this.detailedView.popUp = null;
         this.selected = -1;
-
+        this.detailedView.trashBinState =0;
         return;
       }
 
       this.selected = 3;
 
       console.log("sidebar trash", y);
+      this.detailedView.trashBinState =1;
       this.detailedView.popUp = new SidebarPopup(4, this.detailedView);
     }
   }

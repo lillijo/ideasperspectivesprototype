@@ -17,6 +17,7 @@ class Info {
 
   // xCoor, yCoor of Node, sizeX&Y of DetailView(with frame), innerBuffer: FrameWidth
   draw() {
+    // info Bar ist geschlossen
     if (this.state == 0) {
       push();
       tint(255, 70);
@@ -30,6 +31,7 @@ class Info {
       image(info, this.x, this.y, 50, 50);
       pop();
     }
+    //info Bar ist offen
     if (this.state == 1) {
       push();
       fill(this.color);
@@ -53,6 +55,7 @@ class Info {
         1600, 100, 210, 930);
       text("Target Audience\nis a collection of groups of people that this idea might be useful for \n\nDescription\ncontains more details about the idea, optionally with pictures and implementation thoughts \n\nCategories\nis a collection of applications or spheres of life this idea might fit in\n\nRating\nhere you can see how others have rated the idea and give your own feedback\n\nContext\ndouble click this to see what original technology or new research result has sparked this idea.\nYou can also get back to the main overview over all ideas from here. ",
         1575, 420, 220, 950);
+      image(cross, this.x+30, this.y-20, 20,20,);
       pop();
     }
   }
