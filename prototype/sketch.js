@@ -134,8 +134,6 @@ function setupSprings() {
 function draw() {
   background(255); // Set the background to white
 
-  infoBar.draw();
-
   for (let i = 0; i < nodes.length; i++) {
     for (let j = 0; j < nodes.length; j++) {
       if (i === j) {
@@ -161,6 +159,8 @@ function draw() {
   }
 
   drawSpacers();
+
+  infoBar.draw();
 
   for (let i = 0; i < nodes.length; i++) {
     if (nodes[i] != selectedNode) {
