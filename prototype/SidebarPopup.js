@@ -1,7 +1,12 @@
 class SidebarPopup {
   constructor(type, detailedViewParent) {
-    this.sizeX = detailedViewParent.sizeX / 3;
-    this.sizeY = detailedViewParent.sizeY;
+    if (type === 4) {
+      this.sizeX = 0;
+      this.sizeY = 0;
+    } else {
+      this.sizeX = detailedViewParent.sizeX / 3;
+      this.sizeY = detailedViewParent.sizeY;
+    }
     this.type = type;
     this.color = detailedViewParent.node.color;
     this.detailedViewParent = detailedViewParent;
