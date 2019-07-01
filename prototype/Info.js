@@ -55,7 +55,7 @@ class Info {
         1600, 100, 210, 930);
       text("Target Audience\nis a collection of groups of people that this idea might be useful for \n\nDescription\ncontains more details about the idea, optionally with pictures and implementation thoughts \n\nCategories\nis a collection of applications or spheres of life this idea might fit in\n\nRating\nhere you can see how others have rated the idea and give your own feedback\n\nContext\nclick this to see what original technology or new research result has sparked this idea.\nYou can also get back to the main overview over all ideas from here. ",
         1575, 420, 220, 950);
-      image(cross, this.x+30, this.y-20, 20,20,);
+      image(cross, this.x + 30, this.y - 20, 20, 20,);
       pop();
     }
   }
